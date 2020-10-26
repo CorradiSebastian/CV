@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="15dp"
+    tools:context=".views.main.MainActivity">
+<!-- TODO parametrizar padding -->
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/clHeading"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toEndOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        >
+
+        <ImageView
+            android:id="@+id/ivPhoto"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:scaleType="centerInside"
+            />
+
+        <TextView
+            android:id="@+id/tvName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="@+id/ivPhoto"
+            app:layout_constraintLeft_toRightOf="@id/ivPhoto"
+            app:layout_constraintRight_toRightOf="parent"
+            tools:text="Sebastian Corradi"
+            />
+
+        <TextView
+            android:id="@+id/tvDNI"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/tvName"
+            app:layout_constraintLeft_toLeftOf="@id/tvName"
+            app:layout_constraintRight_toRightOf="parent"
+            tools:text="12.345.678"
+            />
+
+
+        <TextView
+            android:id="@+id/tvAge"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/tvDNI"
+            app:layout_constraintLeft_toLeftOf="@id/tvName"
+            app:layout_constraintRight_toRightOf="parent"
+            tools:text="40 years"
+            />
+
+        <TextView
+            android:id="@+id/tvPhoneNumber"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/tvAge"
+            app:layout_constraintLeft_toLeftOf="@id/tvName"
+            app:layout_constraintRight_toRightOf="parent"
+            tools:text="15-5123-4567"
+            />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/viewPager"
+        app:layout_constraintTop_toBottomOf="@id/clHeading"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+         />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
