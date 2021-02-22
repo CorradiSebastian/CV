@@ -2,20 +2,36 @@ package com.scorradi.cv.views.main
 
 import android.app.Activity
 import android.os.Bundle
+import android.widget.TextView
 import androidx.viewpager.widget.ViewPager
 import butterknife.BindView
 import butterknife.ButterKnife
 import com.scorradi.cv.R
+import com.scorradi.cv.databinding.ActivityMainBinding
+import com.scorradi.cv.views.models.PersonModel
 
-class MainActivity : Activity() {
+class MainActivity : Activity(), IMainView {
 
-    @BindView(R.id.viewPager)
-    private lateinit var ViewPager: ViewPager
+    private lateinit var binding: ActivityMainBinding
+
+    private lateinit var presenter: MainPresenter;
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-        ButterKnife.bind(this);
 
+        super.onCreate(savedInstanceState)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        val view = binding.root
+        setContentView(view)
+
+        presenter = MainPresenter(this)
+        presenter.onCreate();
+
+    }
+
+    override fun showPerson(personModel: PersonModel){
+        binding.tvName.text = personModel.Name
+        binding.tvDNI.text = personModel.Id
+        binding.tvAge.text = Integer.toString(personModel.Age)
+        binding.tvPhoneNumber.text = personModel.PhoneNumber
     }
 }

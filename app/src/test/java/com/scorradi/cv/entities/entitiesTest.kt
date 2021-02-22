@@ -4,6 +4,9 @@ package com.scorradi.cv.entities
 import com.scorradi.cv.db.daos.entities.Company
 import com.scorradi.cv.db.daos.entities.DateComparator
 import com.scorradi.cv.db.daos.entities.Job
+import com.scorradi.cv.db.daos.entities.Person
+import com.scorradi.cv.views.models.PersonModel
+import junit.framework.Assert.assertEquals
 import junit.framework.Assert.assertTrue
 import org.junit.Assert
 
@@ -49,4 +52,35 @@ class entitiesTest {
             */
     }
 
+    @Test
+    fun person(){
+        val actualPerson = getDummyPerson()
+        var expectedPerson : Person = Person();
+        expectedPerson.Name = actualPerson.Name
+        expectedPerson.Id = actualPerson.Id
+        expectedPerson.BornDate = actualPerson.BornDate
+        expectedPerson.PhoneNumber = actualPerson.PhoneNumber
+
+        assertEquals(actualPerson, expectedPerson);
+
+    }
+
+    fun getDummyPerson():Person{
+        return Person("Sebastian", "12345678", Date(321782400000),  "11-5353-5353");
+    }
+
+    fun getDummyPersonalDataViewModel(): PersonModel {
+        return PersonModel(getDummyPerson());
+    }
+
+    @Test
+    fun personalDataViewModel(){
+        val actualPersonalDataViewModel  = getDummyPersonalDataViewModel()
+        var expectedPersonalDataViewModel =
+            PersonModel(getDummyPerson());
+
+        assertEquals(actualPersonalDataViewModel, expectedPersonalDataViewModel);
+        //Log.e("AGE","age: " + actualPersonalDataViewModel.Age);
+       assertEquals(actualPersonalDataViewModel, expectedPersonalDataViewModel);
+    }
 }
