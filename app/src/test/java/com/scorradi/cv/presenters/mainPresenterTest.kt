@@ -31,13 +31,7 @@ class MainPresenterTest{
         val experience2 = Experience(2, "Apple", 3, Date(321722400000), Date(321742400000))
         experienceExpected.add(ExperienceModel(experience1))
         experienceExpected.add(ExperienceModel(experience2))
-
-        assertEquals(experienceExpected[0].ExperienceId, experienceActual[0].ExperienceId)
-        assertEquals(experienceExpected[0].CompanyName, experienceActual[0].CompanyName)
-        assertEquals(experienceExpected[0].From, experienceActual[0].From)
-        assertEquals(experienceExpected[0].To, experienceActual[0].To)
-
-        assertEquals(experienceExpected[0], experienceActual[0])
+        
         assertEquals(experienceExpected, experienceActual)
     }
 }
