@@ -2,12 +2,8 @@ package com.scorradi.cv.views.main
 
 import android.app.Activity
 import android.os.Bundle
-import android.widget.TextView
-import androidx.viewpager.widget.ViewPager
-import butterknife.BindView
-import butterknife.ButterKnife
-import com.scorradi.cv.R
 import com.scorradi.cv.databinding.ActivityMainBinding
+import com.scorradi.cv.db.daos.entities.Experience
 import com.scorradi.cv.views.models.PersonModel
 
 class MainActivity : Activity(), IMainView {
@@ -33,5 +29,9 @@ class MainActivity : Activity(), IMainView {
         binding.tvDNI.text = personModel.Id
         binding.tvAge.text = Integer.toString(personModel.Age)
         binding.tvPhoneNumber.text = personModel.PhoneNumber
+    }
+
+    override fun showExperiences(experiences: List<Experience>) {
+        TODO("Not yet implemented")
     }
 }
