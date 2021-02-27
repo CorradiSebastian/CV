@@ -4,7 +4,6 @@ import com.scorradi.cv.db.daos.entities.Person
 import com.scorradi.cv.views.main.MainPresenter
 import com.scorradi.cv.views.models.ExperienceModel
 import com.scorradi.cv.views.models.PersonModel
-import org.junit.Assert
 import org.junit.Test
 
 import org.junit.Assert.*
@@ -24,14 +23,14 @@ class MainPresenterTest{
     @Test
     fun testLoadExperiences(){
         val mainPresenter = MainPresenter(null);
-        val experienceActual = mainPresenter.loadExperiences()
+        val experienceActual = mainPresenter.loadExperienceModels()
 
         val experienceExpected = ArrayList<ExperienceModel>(0)
         val experience1 = Experience(1, "Google", 2, Date(321742400000), Date(321752400000))
         val experience2 = Experience(2, "Apple", 3, Date(321722400000), Date(321742400000))
         experienceExpected.add(ExperienceModel(experience1))
         experienceExpected.add(ExperienceModel(experience2))
-        
+
         assertEquals(experienceExpected, experienceActual)
     }
 }

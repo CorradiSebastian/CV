@@ -12,11 +12,10 @@ data class ExperienceModel(val experience: Experience) {
     val From: Date = experience.From
     val To: Date = experience.To
 
-    override fun equals(other: Any?): Boolean {
-        val em: ExperienceModel = other as ExperienceModel
-        return ExperienceId == em.ExperienceId &&
-                CompanyName.equals(em.CompanyName) &&
-                From.equals(em.From) &&
-                To.equals(em.To)
+    companion object {
+        val KEY_EXPERIENCE_ID = "ExperienceId"
+        val KEY_COMPANY_NAME = "CompanyName"
+        val KEY_FROM = "From"
+        val KEY_TO = "To"
     }
 }
