@@ -21,7 +21,7 @@ class MainPresenterTest{
     }
 
     @Test
-    fun testLoadExperiences(){
+    fun testLoadExperiencesFromJson(){
         val mainPresenter = MainPresenter(null);
         val experienceActual = mainPresenter.loadExperienceModels()
 
@@ -33,4 +33,5 @@ class MainPresenterTest{
 
         assertEquals(experienceExpected, experienceActual)
     }
+
 }

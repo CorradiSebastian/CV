@@ -1,6 +1,5 @@
 package com.scorradi.cv.views.components
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,11 +7,13 @@ import androidx.recyclerview.widget.RecyclerView
 import com.scorradi.cv.databinding.ExperienceItemRowBinding
 import com.scorradi.cv.views.models.ExperienceModel
 
-class ExperienceItemAdapter(private val experienceModels: List<ExperienceModel>) : RecyclerView.Adapter<ExperienceItemAdapter.ExperienceItemHolder>()  {
+class ExperienceItemAdapter(private val experienceModels: List<ExperienceModel>, private val onItemClick: OnClickListener) :
+    RecyclerView.Adapter<ExperienceItemAdapter.ExperienceItemHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ExperienceItemHolder {
-        val binding = ExperienceItemRowBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return ExperienceItemHolder(binding)
+        val binding =
+            ExperienceItemRowBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        return ExperienceItemHolder(binding, onItemClick)
     }
 
     override fun getItemCount(): Int {
@@ -24,15 +25,19 @@ class ExperienceItemAdapter(private val experienceModels: List<ExperienceModel>)
         holder.setExperienceModel(experienceModel)
     }
 
-    class ExperienceItemHolder(val binding: ExperienceItemRowBinding): RecyclerView.ViewHolder(binding.root), View.OnClickListener {
-        private var experienceModel:ExperienceModel? = null
+    class ExperienceItemHolder(
+        val binding: ExperienceItemRowBinding,
+        private val onItemClick: OnClickListener
+    ) : RecyclerView.ViewHolder(binding.root), View.OnClickListener {
+        private lateinit var experienceModel: ExperienceModel
 
-        fun setExperienceModel(experienceModel: ExperienceModel){
+        fun setExperienceModel(experienceModel: ExperienceModel) {
             this.experienceModel = experienceModel
-            binding.tvCompanyName.text = experienceModel.CompanyName
-            binding.tvFrom.text = experienceModel.From.toString()
-            binding.tvTo.text = experienceModel.To.toString()
+            binding.tvCompanyName.text = experienceModel.companyName
+            binding.tvFrom.text = experienceModel.from.toString()
+            binding.tvTo.text = experienceModel.to.toString()
         }
+
         //3
         init {
             binding.root.setOnClickListener(this)
@@ -40,8 +45,17 @@ class ExperienceItemAdapter(private val experienceModels: List<ExperienceModel>)
 
         //4
         override fun onClick(v: View) {
-            Log.d("RecyclerView", "CLICK!")
+            onItemClick.onClick(experienceModel);
         }
 
+    }
+
+    interface OnClickListener {
+        /**
+         * Called when a experienceModel has been clicked.
+         *
+         * @param experience The experienceModel that was clicked.
+         */
+        fun onClick(experienceModel: ExperienceModel)
     }
 }

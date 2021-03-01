@@ -1,12 +1,14 @@
 package com.scorradi.cv.views.main
 
 import android.app.Activity
+import android.content.Context
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.scorradi.cv.databinding.ActivityMainBinding
 import com.scorradi.cv.views.components.ExperienceItemAdapter
 import com.scorradi.cv.views.models.ExperienceModel
 import com.scorradi.cv.views.models.PersonModel
+
 
 class MainActivity : Activity(), IMainView {
 
@@ -38,10 +40,20 @@ class MainActivity : Activity(), IMainView {
     }
 
     override fun showExperiences(experiences: List<ExperienceModel>) {
-        val adapter = ExperienceItemAdapter(experiences)
+        val onClickListener = object: ExperienceItemAdapter.OnClickListener {
+            override fun onClick(experienceModel: ExperienceModel) {
+                presenter.onExperienceModelClick(experienceModel)
+            }
+        }
+
+        val adapter = ExperienceItemAdapter(experiences,onClickListener)
         binding.rvExperiences.adapter = adapter
         adapter.notifyDataSetChanged()
 
 
+    }
+
+    override fun getContext(): Context {
+        return this
     }
 }

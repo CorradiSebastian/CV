@@ -1,0 +1,22 @@
+package com.scorradi.cv.datamanager
+
+import androidx.test.ext.junit.runners.AndroidJUnit4
+import androidx.test.platform.app.InstrumentationRegistry
+import com.scorradi.cv.DataManager.DataManager
+import org.junit.Assert
+import org.junit.Test
+import org.junit.runner.RunWith
+
+@RunWith(AndroidJUnit4::class)
+class DataManagerTest {
+    @Test
+    fun testLoadExperiences() {
+        val dataManager = DataManager()
+        val appContext = InstrumentationRegistry.getInstrumentation().targetContext
+
+        val experiencesJson = dataManager.getExperiencesFromJson("experiences.json", appContext)
+        val experiencesMocked = dataManager.getExperiencesMocked()
+
+        Assert.assertEquals(experiencesMocked, experiencesJson)
+    }
+}

@@ -22,14 +22,14 @@ class entitiesTest {
             "Internet",
             "AR"
         )
-        assertTrue(company.Name == "google")
+        assertTrue(company.name == "google")
 
         val job = Job(
             1,
-            company.Name,
+            company.name,
             "ActionScript developer"
         )
-        assertTrue(job.CompanyName == company.Name)
+        assertTrue(job.CompanyName == company.name)
         //assertTrue(job.From == Date(2010, 12,12))
         //estos tests son horribles, demasiado pavos
         //armar tests de logica o de los viewmodels, cuando los arma
@@ -56,10 +56,10 @@ class entitiesTest {
     fun person(){
         val actualPerson = getDummyPerson()
         var expectedPerson : Person = Person();
-        expectedPerson.Name = actualPerson.Name
-        expectedPerson.Id = actualPerson.Id
-        expectedPerson.BornDate = actualPerson.BornDate
-        expectedPerson.PhoneNumber = actualPerson.PhoneNumber
+        expectedPerson.name = actualPerson.name
+        expectedPerson.id = actualPerson.id
+        expectedPerson.bornDate = actualPerson.bornDate
+        expectedPerson.phoneNumber = actualPerson.phoneNumber
 
         assertEquals(actualPerson, expectedPerson);
 

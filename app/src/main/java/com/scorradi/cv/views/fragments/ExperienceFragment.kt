@@ -14,10 +14,10 @@ class ExperienceFragment() : Fragment() {
             val args = Bundle()
             //args.putSerializable()
             //TODO pasar los parametros
-            args.putInt(ExperienceModel.KEY_EXPERIENCE_ID, experienceModel.ExperienceId)
-            args.putString(ExperienceModel.KEY_COMPANY_NAME, experienceModel.CompanyName)
+            args.putInt(ExperienceModel.KEY_EXPERIENCE_ID, experienceModel.experienceId)
+            args.putString(ExperienceModel.KEY_COMPANY_NAME, experienceModel.companyName)
             args.putString(ExperienceModel.KEY_FROM, experienceModel.toString())
-            args.putString(ExperienceModel.KEY_TO, experienceModel.To.toString())
+            args.putString(ExperienceModel.KEY_TO, experienceModel.to.toString())
 
             // Create a new MovieFragment and set the Bundle as the arguments
             // to be retrieved and displayed when the view is created

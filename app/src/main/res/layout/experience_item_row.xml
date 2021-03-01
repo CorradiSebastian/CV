@@ -17,6 +17,7 @@
         app:layout_constraintTop_toTopOf="parent"
         android:textSize="20dp"
         android:textStyle="bold"
+        android:textColor="@color/title1"
         tools:text="Google" />
 
     <TextView
@@ -25,6 +26,7 @@
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
         android:text="From: "
+        android:textColor="@color/title2"
         app:layout_constraintTop_toBottomOf="@+id/tvCompanyName" />
 
     <TextView
@@ -36,6 +38,7 @@
         android:ellipsize="end"
         android:maxLines="1"
         tools:text="12/2010"
+        android:textColor="@color/details"
         app:layout_constraintStart_toEndOf="@+id/labelFrom"
         app:layout_constraintTop_toTopOf="@+id/labelFrom" />
 
@@ -45,6 +48,7 @@
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
         android:text="To: "
+        android:textColor="@color/title2"
         app:layout_constraintTop_toBottomOf="@+id/tvFrom" />
 
     <TextView
@@ -56,6 +60,7 @@
         android:ellipsize="end"
         android:maxLines="1"
         tools:text="12/2012"
+        android:textColor="@color/details"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/labelTo"
