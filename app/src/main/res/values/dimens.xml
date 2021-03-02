@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="app_padding">10dp</dimen>
+    <dimen name="text_margin">5dp</dimen>
+    <dimen name="paragraph_margin">10dp</dimen>
+
+    <dimen name="title1">25dp</dimen>
+    <dimen name="title2">20dp</dimen>
+    <dimen name="details">15dp</dimen>
+</resources>

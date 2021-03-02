@@ -1,22 +1,24 @@
 {
   "jobs": [
     {
-      "Id": 2,
-      "Name": "Android Developer",
-      "Description": "Develop android applications",
-	  "Responsabilities": "accompany the development process from the first moment.\nParticipate in the definition of architectures and strategic decisions.\nResearch new technologies and analyze their implementation.",
-      "Technologies": "Java, Kotlin, SQL",
-	  "Libraries": "Retrofit, Gson, Room, etc.",
-      "Extras": "Technical leader in charge of a team of 3 people.\nPoint of contact with the rest of the teams.\nAgile methodologies."
+      "id": 2,
+      "name": "Android Developer",
+	  "companyName":"Google",
+      "description": "Develop android applications",
+	  "responsibilities": "accompany the development process from the first moment.\nParticipate in the definition of architectures and strategic decisions.\nResearch new technologies and analyze their implementation.",
+      "technologies": "Java, Kotlin, SQL",
+	  "libraries": "Retrofit, Gson, Room, etc.",
+      "extras": "Technical leader in charge of a team of 3 people.\nPoint of contact with the rest of the teams.\nAgile methodologies."
     },
     {
-      "Id": 3,
-      "Name": "Android/Flutter Developer",
-      "Description": "Develop android applications",
-	  "Responsabilities": "accompany the development process from the first moment.\nParticipate in the definition of architectures and strategic decisions.\nMonitoring, control and reporting of project progress.\nReleases Manager",
-      "Technologies": "Java, Kotlin, SQL, Flutter",
-	  "Libraries": "Retrofit, Gson, Room, etc.",
-      "Extras": "Technical leader in charge of a team of 3 people.\nPoint of contact with the rest of the teams.\nAgile methodologies."
+      "id": 3,
+      "name": "Android/Flutter Developer",
+	  "companyName":"Apple",
+      "description": "Develop android applications",
+	  "responsibilities": "accompany the development process from the first moment.\nParticipate in the definition of architectures and strategic decisions.\nMonitoring, control and reporting of project progress.\nReleases Manager",
+      "technologies": "Java, Kotlin, SQL, Flutter",
+	  "libraries": "Retrofit, Gson, Room, etc.",
+      "extras": "Technical leader in charge of a team of 3 people.\nPoint of contact with the rest of the teams.\nAgile methodologies."
      }
   ]
 }

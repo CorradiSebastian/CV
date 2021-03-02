@@ -12,15 +12,16 @@ import com.scorradi.cv.db.daos.entities.Company
 
 class Job(
     @PrimaryKey
-    val Id: Int,
+    val id: Int,
     @ColumnInfo(name = "companyName")
     val companyName: String,
     @ColumnInfo(name = "name")
     val name: String,
     @ColumnInfo(name = "description")
     val description:String,
-    @ColumnInfo(name = "responsabilities")
-    val responsabilities: String,
+    @ColumnInfo(name = "responsi" +
+            "bilities")
+    val responsibilities: String,
     @ColumnInfo(name = "technologies")
     val technologies: String,
     @ColumnInfo(name = "libraries")

@@ -4,7 +4,9 @@ import android.content.Intent
 import android.util.Log
 import com.scorradi.cv.DataManager.DataManager
 import com.scorradi.cv.db.daos.entities.Experience
+import com.scorradi.cv.views.fragments.JobFragment
 import com.scorradi.cv.views.models.ExperienceModel
+import com.scorradi.cv.views.models.JobModel
 import com.scorradi.cv.views.models.PersonModel
 
 class MainPresenter(private val mainView: IMainView?) {
@@ -40,6 +42,8 @@ class MainPresenter(private val mainView: IMainView?) {
     }
 
     fun onExperienceModelClick(experiendeModel: ExperienceModel){
-        //TODO display custom dialog with the details
+        val job = dataManager.getJob(mainView!!.getContext(), experiendeModel.experienceId)
+        val jobModel = JobModel(job)
+        mainView?.showJob(jobModel)
     }
 }

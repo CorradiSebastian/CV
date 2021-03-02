@@ -1,10 +1,10 @@
 package com.scorradi.cv.DataManager
 
 data class ExperienceDTO(
-    val Id: Int,
-    val CompanyName: String,
-    val JobId: Int,
-    val From: Long,
-    val To: Long
+    val id: Int,
+    val companyName: String,
+    val jobId: Int,
+    val from: Long,
+    val to: Long
 ) {
 }

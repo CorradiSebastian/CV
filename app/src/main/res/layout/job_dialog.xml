@@ -1,132 +1,127 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<androidx.appcompat.widget.LinearLayoutCompat
     xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/app_backgorund"
+    android:orientation="vertical"
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/tvLabelName"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="Job:"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
         android:id="@+id/tvJobName"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginTop="@dimen/text_margin"
+        android:layout_marginBottom="@dimen/text_margin"
         tools:text="Android Developer"
+        android:textSize="@dimen/title1"
+        android:textColor="@color/details2"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvLabelName" />
 
+
     <TextView
-        android:id="@+id/tvLabelDescription"
-        android:layout_width="0dp"
+        android:id="@+id/tvLabelCompanyName"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:text="Description"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvJobName" />
+        android:layout_marginTop="@dimen/text_margin"
+        android:text="Company:"
+        android:textSize="@dimen/details"
+        android:textColor="@color/title3"
+ />
 
 
     <TextView
-        android:id="@+id/tvDescription"
-        android:layout_width="0dp"
+        android:id="@+id/tvCompanyName"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        tools:text="Develop android applications"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvLabelDescription" />
+        android:layout_marginBottom="@dimen/text_margin"
+        tools:text="Google"
+        android:textSize="@dimen/details"
+        android:textColor="@color/details2"
+/>
 
     <TextView
-        android:id="@+id/tvLabelResponsabilities"
-        android:layout_width="0dp"
+        android:id="@+id/tvLabelResponsibilities"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginTop="@dimen/text_margin"
+        android:text="Responsibilities:"
+        android:textSize="@dimen/details"
+        android:textColor="@color/title3"
+ />
+
+    <TextView
+        android:id="@+id/tvResponsibilities"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/text_margin"
         tools:text="Accompany the development process from the first moment.\nParticipate in the definition of architectures and strategic decisions.\nResearch new technologies and analyze their implementation."
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvDescription" />
-
+        android:textSize="@dimen/details"
+        android:textColor="@color/details2"
+ />
+<!--
     <TextView
         android:id="@+id/tvLabelTechnologies"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:text="Technologies"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvLabelResponsabilities" />
+        android:layout_marginTop="@dimen/text_margin"
+        android:text="Technologies:"
+        android:textSize="@dimen/details"
+        android:textColor="@color/title3"
+ />
 
     <TextView
         android:id="@+id/tvTechnologies"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="@dimen/text_margin"
         tools:text="Java, Kotlin, SQL."
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvLabelTechnologies" />
+        android:textSize="@dimen/details"
+        android:textColor="@color/details2"
+ />
 
     <TextView
         android:id="@+id/tvLabelLibraries"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:text="Technologies"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvLabelResponsabilities" />
+        android:layout_marginTop="@dimen/text_margin"
+        android:text="Libraries:"
+        android:textSize="@dimen/details"
+        android:textColor="@color/title3"
+ />
 
     <TextView
         android:id="@+id/tvLibraries"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        tools:text="Java, Kotlin, SQL."
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvLabelLibraries" />
+        android:layout_marginBottom="@dimen/text_margin"
+        tools:text="Retrofit, Room, Gson, etc."
+        android:textColor="@color/details2"
+        android:textSize="@dimen/details"
+ />
 
     <TextView
         android:id="@+id/tvLabelExtras"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:text="Technologies"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvLibraries" />
+        android:layout_marginTop="@dimen/text_margin"
+        android:text="Extras:"
+        android:textSize="@dimen/details"
+        android:textColor="@color/title3"
+ />
 
     <TextView
         android:id="@+id/tvExtras"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="@dimen/text_margin"
         tools:text="Technical leader in charge of a team of 3 people.\nPoint of contact with the rest of the teams.\nAgile methodologies."
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvLabelExtras" />
+        android:textColor="@color/details2"
+        android:textSize="@dimen/details"
+ />
+-->
 
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.appcompat.widget.LinearLayoutCompat>

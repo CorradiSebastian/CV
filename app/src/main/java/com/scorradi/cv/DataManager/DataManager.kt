@@ -1,13 +1,12 @@
 package com.scorradi.cv.DataManager
 
 
-import android.app.Application
 import android.content.Context
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import com.scorradi.cv.db.daos.entities.Experience
+import com.scorradi.cv.db.daos.entities.Job
 import com.scorradi.cv.db.daos.entities.Person
-import com.scorradi.cv.views.models.ExperienceModel
 import org.json.JSONException
 import org.json.JSONObject
 import java.io.IOException
@@ -74,7 +73,35 @@ class DataManager {
 
     private fun experiencesFromDTO(dtos : ArrayList<ExperienceDTO> ): List<Experience>
     {
-        return dtos.map<ExperienceDTO, Experience> { Experience(it.Id,
-                                              it.CompanyName, it.JobId, Date(it.From), Date(it.To))}
+        return dtos.map<ExperienceDTO, Experience> { Experience(it.id,
+                                              it.companyName, it.jobId, Date(it.from), Date(it.to))}
+    }
+
+    fun getJobsFromJson(fileName: String, context: Context): List<Job> {
+        var jobs = ArrayList<Job>()
+        try {
+            // Load the JSONArray from the file
+            val jsonString = loadJsonFromFile(fileName, context)
+            val json = JSONObject(jsonString)
+
+            val arrayListType = object : TypeToken<ArrayList<Job?>?>() {}.type
+            jobs = gson.fromJson<ArrayList<Job>>(json.get("jobs").toString(), arrayListType)
+
+        } catch (e: JSONException) {
+            //return jobsFromDTO(jobs)
+            return jobs
+        }
+
+//        return jobsFromDTO(experienceDTOs)
+        return jobs
+    }
+
+    fun getJob(context: Context, experienceId: Int): Job{
+        val jobs = getJobsFromJson("jobs.json", context)
+        if (experienceId == 1){
+            return jobs[0]
+        } else {
+            return jobs[1]
+        }
     }
 }

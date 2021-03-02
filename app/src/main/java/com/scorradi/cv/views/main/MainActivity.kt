@@ -3,14 +3,18 @@ package com.scorradi.cv.views.main
 import android.app.Activity
 import android.content.Context
 import android.os.Bundle
+import androidx.fragment.app.FragmentActivity
+import androidx.fragment.app.FragmentManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.scorradi.cv.databinding.ActivityMainBinding
 import com.scorradi.cv.views.components.ExperienceItemAdapter
+import com.scorradi.cv.views.fragments.JobFragment
 import com.scorradi.cv.views.models.ExperienceModel
+import com.scorradi.cv.views.models.JobModel
 import com.scorradi.cv.views.models.PersonModel
 
 
-class MainActivity : Activity(), IMainView {
+class MainActivity : FragmentActivity(), IMainView {
 
     private lateinit var binding: ActivityMainBinding
 
@@ -28,10 +32,9 @@ class MainActivity : Activity(), IMainView {
 
         presenter = MainPresenter(this)
         presenter.onCreate();
-
     }
 
-    override fun showPerson(personModel: PersonModel){
+    override fun showPerson(personModel: PersonModel) {
         binding.tvName.text = personModel.Name
         binding.tvDNI.text = personModel.Id
         binding.tvAge.text = Integer.toString(personModel.Age)
@@ -40,20 +43,22 @@ class MainActivity : Activity(), IMainView {
     }
 
     override fun showExperiences(experiences: List<ExperienceModel>) {
-        val onClickListener = object: ExperienceItemAdapter.OnClickListener {
+        val onClickListener = object : ExperienceItemAdapter.OnClickListener {
             override fun onClick(experienceModel: ExperienceModel) {
                 presenter.onExperienceModelClick(experienceModel)
             }
         }
 
-        val adapter = ExperienceItemAdapter(experiences,onClickListener)
+        val adapter = ExperienceItemAdapter(experiences, onClickListener)
         binding.rvExperiences.adapter = adapter
         adapter.notifyDataSetChanged()
-
-
     }
 
     override fun getContext(): Context {
         return this
+    }
+
+    override fun showJob(jobModel: JobModel){
+        JobFragment.newInstance(jobModel).show(supportFragmentManager, JobFragment.TAG)
     }
 }
