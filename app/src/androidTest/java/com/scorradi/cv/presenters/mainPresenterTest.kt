@@ -1,4 +1,5 @@
 package com.scorradi.cv.presenters
+import androidx.test.platform.app.InstrumentationRegistry
 import com.scorradi.cv.db.daos.entities.Experience
 import com.scorradi.cv.db.daos.entities.Person
 import com.scorradi.cv.views.main.MainPresenter
@@ -22,7 +23,8 @@ class MainPresenterTest{
 
     @Test
     fun testLoadExperiencesFromJson(){
-        val mainPresenter = MainPresenter(null);
+        val appContext = InstrumentationRegistry.getInstrumentation().targetContext
+        val mainPresenter = MainPresenter(appContext);
         val experienceActual = mainPresenter.loadExperienceModels()
 
         val experienceExpected = ArrayList<ExperienceModel>(0)

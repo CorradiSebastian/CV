@@ -19,8 +19,7 @@ class Job(
     val name: String,
     @ColumnInfo(name = "description")
     val description:String,
-    @ColumnInfo(name = "responsi" +
-            "bilities")
+    @ColumnInfo(name = "responsibilities")
     val responsibilities: String,
     @ColumnInfo(name = "technologies")
     val technologies: String,

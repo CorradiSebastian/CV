@@ -1,6 +1,6 @@
 package com.scorradi.cv.interactors
 
-import com.scorradi.cv.DataManager.DataManager
+import com.scorradi.cv.datamanager.DataManager
 import com.scorradi.cv.db.daos.entities.Person
 import java.util.*
 

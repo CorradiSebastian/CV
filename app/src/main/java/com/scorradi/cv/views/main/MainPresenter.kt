@@ -1,15 +1,12 @@
 package com.scorradi.cv.views.main
 
-import android.content.Intent
-import android.util.Log
-import com.scorradi.cv.DataManager.DataManager
+import com.scorradi.cv.datamanager.DataManager
 import com.scorradi.cv.db.daos.entities.Experience
-import com.scorradi.cv.views.fragments.JobFragment
 import com.scorradi.cv.views.models.ExperienceModel
 import com.scorradi.cv.views.models.JobModel
 import com.scorradi.cv.views.models.PersonModel
 
-class MainPresenter(private val mainView: IMainView?) {
+class MainPresenter(private val mainView: IMainView) {
     private val dataManager = DataManager()
 
     public fun onCreate() {
@@ -19,12 +16,12 @@ class MainPresenter(private val mainView: IMainView?) {
 
     fun showPerson(){
         val person = loadPersonModel()
-        mainView?.showPerson(person)
+        mainView.showPerson(person)
     }
 
     fun showExperiences(){
         val experiences = loadExperienceModels()
-        mainView?.showExperiences(experiences)
+        mainView.showExperiences(experiences)
     }
 
     fun loadPersonModel(): PersonModel{
@@ -37,13 +34,13 @@ class MainPresenter(private val mainView: IMainView?) {
     }
 
     fun loadExperienceModels():List<ExperienceModel>{
-        val experiences =  dataManager.getExperiences(mainView!!.getContext());
+        val experiences =  dataManager.getExperiences(mainView.getContext());
         return experiences.map<Experience, ExperienceModel> { ExperienceModel(it) }
     }
 
     fun onExperienceModelClick(experiendeModel: ExperienceModel){
-        val job = dataManager.getJob(mainView!!.getContext(), experiendeModel.experienceId)
+        val job = dataManager.getJob(mainView.getContext(), experiendeModel.experienceId)
         val jobModel = JobModel(job)
-        mainView?.showJob(jobModel)
+        mainView.showJob(jobModel)
     }
 }

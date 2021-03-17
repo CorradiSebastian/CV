@@ -24,12 +24,7 @@ class entitiesTest {
         )
         assertTrue(company.name == "google")
 
-        val job = Job(
-            1,
-            company.name,
-            "ActionScript developer"
-        )
-        assertTrue(job.CompanyName == company.name)
+
         //assertTrue(job.From == Date(2010, 12,12))
         //estos tests son horribles, demasiado pavos
         //armar tests de logica o de los viewmodels, cuando los arma
