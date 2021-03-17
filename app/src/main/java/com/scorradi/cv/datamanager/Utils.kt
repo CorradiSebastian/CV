@@ -1,10 +1,19 @@
 package com.scorradi.cv.datamanager
 
 import android.content.Context
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 import java.io.IOException
 
 class Utils{
     companion object {
+
+
+//        fun loadJsonFromFile(filename: String, context: Context): String {
+//            GlobalScope.launch {
+//
+//            }
+//        }
 
         fun loadJsonFromFile(filename: String, context: Context): String {
             var json = ""
