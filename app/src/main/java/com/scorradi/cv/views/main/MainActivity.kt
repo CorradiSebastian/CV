@@ -1,10 +1,11 @@
 package com.scorradi.cv.views.main
 
-import android.app.Activity
 import android.content.Context
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.FragmentActivity
-import androidx.fragment.app.FragmentManager
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.scorradi.cv.databinding.ActivityMainBinding
 import com.scorradi.cv.views.components.ExperienceItemAdapter
@@ -14,11 +15,11 @@ import com.scorradi.cv.views.models.JobModel
 import com.scorradi.cv.views.models.PersonModel
 
 
-class MainActivity : FragmentActivity(), IMainView {
+class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
 
-    private lateinit var presenter: MainPresenter;
+    private lateinit var viewModel: MainViewModel;
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
@@ -30,11 +31,24 @@ class MainActivity : FragmentActivity(), IMainView {
         val linearLayoutManager = LinearLayoutManager(this)
         binding.rvExperiences.layoutManager = linearLayoutManager
 
-        presenter = MainPresenter(this)
-        presenter.onCreate();
+        viewModel = MainViewModel(application)
+
+        viewModel.person.observe(this, Observer(){
+            personModel -> showPerson(personModel)
+        })
+
+        viewModel.experiences.observe(this, Observer(){
+            experiences -> showExperiences(experiences)
+        })
+
+        viewModel.job.observe(this, Observer(){
+            jobModel -> showJob(jobModel)
+        })
+
+        viewModel.onCreate();
     }
 
-    override fun showPerson(personModel: PersonModel) {
+    fun showPerson(personModel: PersonModel) {
         binding.tvName.text = personModel.Name
         binding.tvDNI.text = personModel.Id
         binding.tvAge.text = Integer.toString(personModel.Age)
@@ -42,10 +56,10 @@ class MainActivity : FragmentActivity(), IMainView {
 
     }
 
-    override fun showExperiences(experiences: List<ExperienceModel>) {
+    fun showExperiences(experiences: List<ExperienceModel>) {
         val onClickListener = object : ExperienceItemAdapter.OnClickListener {
             override fun onClick(experienceModel: ExperienceModel) {
-                presenter.onExperienceModelClick(experienceModel)
+                viewModel.onExperienceModelClick(experienceModel)
             }
         }
 
@@ -54,11 +68,7 @@ class MainActivity : FragmentActivity(), IMainView {
         adapter.notifyDataSetChanged()
     }
 
-    override fun getContext(): Context {
-        return this
-    }
-
-    override fun showJob(jobModel: JobModel){
+    fun showJob(jobModel: JobModel){
         JobFragment.newInstance(jobModel).show(supportFragmentManager, JobFragment.TAG)
     }
 }

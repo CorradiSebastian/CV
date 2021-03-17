@@ -2,7 +2,7 @@ package com.scorradi.cv.presenters
 import androidx.test.platform.app.InstrumentationRegistry
 import com.scorradi.cv.db.daos.entities.Experience
 import com.scorradi.cv.db.daos.entities.Person
-import com.scorradi.cv.views.main.MainPresenter
+import com.scorradi.cv.views.main.MainViewModel
 import com.scorradi.cv.views.models.ExperienceModel
 import com.scorradi.cv.views.models.PersonModel
 import org.junit.Test
@@ -10,11 +10,11 @@ import org.junit.Test
 import org.junit.Assert.*
 import java.util.*
 
-class MainPresenterTest{
+class MainViewModelTest{
 
     @Test
     fun testLoadPerson(){
-        val mainPresenter = MainPresenter(null);
+        val mainPresenter = MainViewModel(null);
         val person = Person("Sebastian Corradi", "12.345.678", Date(321782400000), "15-555-1234");
         val personModelExpected: PersonModel = PersonModel(person);
         val personModelActual = mainPresenter.loadPersonModel();
@@ -24,7 +24,7 @@ class MainPresenterTest{
     @Test
     fun testLoadExperiencesFromJson(){
         val appContext = InstrumentationRegistry.getInstrumentation().targetContext
-        val mainPresenter = MainPresenter(appContext);
+        val mainPresenter = MainViewModel(appContext);
         val experienceActual = mainPresenter.loadExperienceModels()
 
         val experienceExpected = ArrayList<ExperienceModel>(0)
