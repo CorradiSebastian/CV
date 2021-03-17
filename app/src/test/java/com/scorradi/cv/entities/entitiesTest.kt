@@ -4,6 +4,9 @@ package com.scorradi.cv.entities
 import com.scorradi.cv.db.daos.entities.Company
 import com.scorradi.cv.db.daos.entities.DateComparator
 import com.scorradi.cv.db.daos.entities.Job
+import com.scorradi.cv.db.daos.entities.Person
+import com.scorradi.cv.views.models.PersonModel
+import junit.framework.Assert.assertEquals
 import junit.framework.Assert.assertTrue
 import org.junit.Assert
 
@@ -19,14 +22,9 @@ class entitiesTest {
             "Internet",
             "AR"
         )
-        assertTrue(company.Name == "google")
+        assertTrue(company.name == "google")
 
-        val job = Job(
-            1,
-            company.Name,
-            "ActionScript developer"
-        )
-        assertTrue(job.CompanyName == company.Name)
+
         //assertTrue(job.From == Date(2010, 12,12))
         //estos tests son horribles, demasiado pavos
         //armar tests de logica o de los viewmodels, cuando los arma
@@ -49,4 +47,35 @@ class entitiesTest {
             */
     }
 
+    @Test
+    fun person(){
+        val actualPerson = getDummyPerson()
+        var expectedPerson : Person = Person();
+        expectedPerson.name = actualPerson.name
+        expectedPerson.id = actualPerson.id
+        expectedPerson.bornDate = actualPerson.bornDate
+        expectedPerson.phoneNumber = actualPerson.phoneNumber
+
+        assertEquals(actualPerson, expectedPerson);
+
+    }
+
+    fun getDummyPerson():Person{
+        return Person("Sebastian", "12345678", Date(321782400000),  "11-5353-5353");
+    }
+
+    fun getDummyPersonalDataViewModel(): PersonModel {
+        return PersonModel(getDummyPerson());
+    }
+
+    @Test
+    fun personalDataViewModel(){
+        val actualPersonalDataViewModel  = getDummyPersonalDataViewModel()
+        var expectedPersonalDataViewModel =
+            PersonModel(getDummyPerson());
+
+        assertEquals(actualPersonalDataViewModel, expectedPersonalDataViewModel);
+        //Log.e("AGE","age: " + actualPersonalDataViewModel.Age);
+       assertEquals(actualPersonalDataViewModel, expectedPersonalDataViewModel);
+    }
 }

@@ -1,0 +1,18 @@
+{
+  "experiences": [
+    {
+      "id": 1,
+      "companyName": "Google",
+      "jobId": 2,
+      "from": 321742400000,
+      "to": 321752400000
+    },
+    {
+      "id": 2,
+      "companyName": "Apple",
+      "jobId": 3,
+      "from": 321722400000,
+      "to": 321742400000
+    }
+  ]
+}

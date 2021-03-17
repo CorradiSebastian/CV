@@ -5,9 +5,9 @@ import androidx.room.PrimaryKey
 
 @Entity(tableName = "companies")
 class Company(
-    @PrimaryKey val Name: String,
-    val Description: String,
-    val Area: String,
-    val Country: String
+    @PrimaryKey val name: String,
+    val description: String,
+    val area: String,
+    val country: String
 ) {
 }

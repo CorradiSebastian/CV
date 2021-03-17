@@ -13,15 +13,15 @@ import java.util.*
     parentColumns = ["Id"],
     childColumns = ["JobId"]))])
 
-class Experience(
+data class Experience(
     @PrimaryKey
     val Id: Int,
     @ColumnInfo(name = "company_name")
-    val CompanyName: String,
+    val companyName: String,
     @ColumnInfo(name = "job_id")
-    val JobId: Int,
-    val From: Date,
-    val To: Date
+    val jobId: Int,
+    val from: Date,
+    val to: Date
 ) {
 
 }
