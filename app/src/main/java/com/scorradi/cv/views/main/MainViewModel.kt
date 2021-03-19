@@ -42,7 +42,7 @@ class MainViewModel: AndroidViewModel {
         return experiences.map<Experience, ExperienceModel> { ExperienceModel(it) }
     }
 
-    fun onExperienceModelClick(experiendeModel: ExperienceModel){
+    fun experienceModelClicked(experiendeModel: ExperienceModel){
         job.value = JobModel(dataManager.getJob(getApplication(), experiendeModel.experienceId))
     }
 }

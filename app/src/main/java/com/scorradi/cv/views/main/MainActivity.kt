@@ -1,11 +1,8 @@
 package com.scorradi.cv.views.main
 
-import android.content.Context
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.scorradi.cv.databinding.ActivityMainBinding
 import com.scorradi.cv.views.components.ExperienceItemAdapter
@@ -59,7 +56,7 @@ class MainActivity : AppCompatActivity() {
     fun showExperiences(experiences: List<ExperienceModel>) {
         val onClickListener = object : ExperienceItemAdapter.OnClickListener {
             override fun onClick(experienceModel: ExperienceModel) {
-                viewModel.onExperienceModelClick(experienceModel)
+                viewModel.experienceModelClicked(experienceModel)
             }
         }
 
