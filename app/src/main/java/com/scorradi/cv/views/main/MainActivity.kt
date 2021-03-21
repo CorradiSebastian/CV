@@ -3,6 +3,7 @@ package com.scorradi.cv.views.main
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.scorradi.cv.databinding.ActivityMainBinding
 import com.scorradi.cv.views.components.ExperienceItemAdapter
@@ -28,7 +29,7 @@ class MainActivity : AppCompatActivity() {
         val linearLayoutManager = LinearLayoutManager(this)
         binding.rvExperiences.layoutManager = linearLayoutManager
 
-        viewModel = MainViewModel(application)
+        viewModel = ViewModelProvider(this)[MainViewModel::class.java]
 
         viewModel.person.observe(this, Observer(){
             personModel -> showPerson(personModel)

@@ -1,0 +1,8 @@
+{
+	"person" :{
+	  "name":"Sebastian Corradi",
+	  "id": "12.345.678",
+	  "bornDate": 321782400000,
+	  "phoneNumber":"15-1234-5678"
+	}
+}
