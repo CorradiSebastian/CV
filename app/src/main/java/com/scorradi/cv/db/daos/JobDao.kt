@@ -12,7 +12,7 @@ interface JobDao {
     fun getAll():List<Job>
 
     @Query("Select * from jobs where id = :id")
-    fun getJobById(id: Int)
+    fun getJobById(id: Int):Job
 
     @Insert
     fun insertAll(vararg jobs: Job)

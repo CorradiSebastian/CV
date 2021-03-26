@@ -6,12 +6,12 @@ import java.util.*
 @Entity(tableName = "experiences", foreignKeys = [(
         ForeignKey(
             entity = Company::class,
-            parentColumns = ["Name"],
-            childColumns = ["CompanyName"])),
-       (ForeignKey(
-    entity = Job::class,
-    parentColumns = ["Id"],
-    childColumns = ["JobId"]))])
+            parentColumns = ["name"],
+            childColumns = ["company_name"])),
+    (ForeignKey(
+        entity = Job::class,
+        parentColumns = ["id"],
+        childColumns = ["job_id"]))])
 
 data class Experience(
     @PrimaryKey

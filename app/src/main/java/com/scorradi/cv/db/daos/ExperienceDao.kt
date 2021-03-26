@@ -13,7 +13,7 @@ interface ExperienceDao {
     fun getAll(): List<Experience>
 
     @Query("Select * from experiences where Id = :experienceId")
-    fun getExperienceById(experienceId: Int)
+    fun getExperienceById(experienceId: Int):Experience
 
     @Delete
     fun delete(experience: Experience)

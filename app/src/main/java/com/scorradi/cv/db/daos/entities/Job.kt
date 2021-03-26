@@ -7,13 +7,13 @@ import com.scorradi.cv.db.daos.entities.Company
             ForeignKey(
                 entity = Company::class,
                         parentColumns = ["name"],
-                childColumns = ["companyName"])
+                childColumns = ["company_name"])
         )])
 
 class Job(
     @PrimaryKey
     val id: Int,
-    @ColumnInfo(name = "companyName")
+    @ColumnInfo(name = "company_name")
     val companyName: String,
     @ColumnInfo(name = "name")
     val name: String,

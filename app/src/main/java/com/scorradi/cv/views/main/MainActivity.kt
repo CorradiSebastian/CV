@@ -47,10 +47,10 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun showPerson(personModel: PersonModel) {
-        binding.tvName.text = personModel.Name
-        binding.tvDNI.text = personModel.Id
-        binding.tvAge.text = Integer.toString(personModel.Age)
-        binding.tvPhoneNumber.text = personModel.PhoneNumber
+        binding.tvName.text = personModel.name
+        binding.tvDNI.text = personModel.id
+        binding.tvAge.text = Integer.toString(personModel.age)
+        binding.tvPhoneNumber.text = personModel.phoneNumber
 
     }
 

@@ -7,6 +7,7 @@ import com.google.gson.reflect.TypeToken
 import com.scorradi.cv.datamanager.experience.ExperienceManager
 import com.scorradi.cv.datamanager.job.JobManager
 import com.scorradi.cv.datamanager.person.PersonManager
+import com.scorradi.cv.datamanager.person.SocialNetworkLink
 import com.scorradi.cv.db.daos.entities.Experience
 import com.scorradi.cv.db.daos.entities.Job
 import com.scorradi.cv.db.daos.entities.Person
@@ -26,11 +27,10 @@ class DataManager {
     private val personManager = PersonManager()
 
     fun getPerson(id: Int): Person? {
-        return Person("Sebastian Corradi", Integer.toString(id), Date(321782400000), "15-555-1234")
+        return Person("Sebastian Corradi", Integer.toString(id), Date(321782400000), "15-555-1234", ArrayList<SocialNetworkLink>())
     }
     fun getPerson(): Person {
         return personManager.getPerson()
-        //return Person("Sebastian Corradi", "12.345.678", Date(321782400000), "15-555-1234")
     }
 
     fun getExperiences(): List<Experience>{
@@ -42,8 +42,11 @@ class DataManager {
         return experienceManager.getExperiencesMocked()
     }
 
-
     fun getJob(context: Context, experienceId: Int): Job{
         return jobManager.getJob(context, experienceId)
+    }
+
+    fun loadData(){
+        personManager.loadPerson()
     }
 }
