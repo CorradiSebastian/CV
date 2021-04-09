@@ -29,6 +29,7 @@ class DataManager {
     fun getPerson(id: Int): Person? {
         return Person("Sebastian Corradi", Integer.toString(id), Date(321782400000), "15-555-1234", ArrayList<SocialNetworkLink>())
     }
+
     fun getPerson(): Person {
         return personManager.getPerson()
     }
@@ -43,10 +44,13 @@ class DataManager {
     }
 
     fun getJob(context: Context, experienceId: Int): Job{
-        return jobManager.getJob(context, experienceId)
+        return jobManager.getJob(experienceId)
     }
 
     fun loadData(){
         personManager.loadPerson()
+        jobManager.loadJobs()
+        experienceManager.loadExperiences()
+
     }
 }

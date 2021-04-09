@@ -6,6 +6,8 @@ import com.scorradi.cv.datamanager.DataManager
 import com.scorradi.cv.datamanager.service.experience.ExperienceDTO
 import com.scorradi.cv.datamanager.Utils
 import com.scorradi.cv.datamanager.service.experience.ExperienceService
+import com.scorradi.cv.datamanager.service.person.PersonService
+import com.scorradi.cv.db.DBManager
 import com.scorradi.cv.db.daos.entities.Experience
 import org.json.JSONException
 import org.json.JSONObject
@@ -15,8 +17,9 @@ import kotlin.collections.ArrayList
 class ExperienceManager{
     public fun getExperiences(): List<Experience>{
         //return getExperiencesFromJson("experiences.json", CvApplication.applicationContext())
-        val  experiencesDTO = ExperienceService().getExperiences()
-        return experiencesFromDTO(experiencesDTO!!)
+        //val  experiencesDTO = ExperienceService().getExperiences()
+        //return experiencesFromDTO(experiencesDTO!!)
+        return DBManager.getCvDatabase().experienceDao().getAll()
     }
 
     public fun getExperiencesMocked(): List<Experience>{
@@ -51,4 +54,9 @@ class ExperienceManager{
             it.companyName, it.jobId, Date(it.from), Date(it.to))}
     }
 
+    public fun loadExperiences(){
+        val experienceDTOs = ExperienceService().getExperiences()
+        val experiences = experiencesFromDTO(experienceDTOs)
+        DBManager.getCvDatabase().experienceDao().insertAll(experiences)
+    }
 }

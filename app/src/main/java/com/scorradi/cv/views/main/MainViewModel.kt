@@ -8,6 +8,7 @@ import androidx.lifecycle.viewModelScope
 import com.scorradi.cv.CvApplication
 import com.scorradi.cv.datamanager.DataManager
 import com.scorradi.cv.db.daos.entities.Experience
+import com.scorradi.cv.views.events.Event
 import com.scorradi.cv.views.models.ExperienceModel
 import com.scorradi.cv.views.models.JobModel
 import com.scorradi.cv.views.models.PersonModel
@@ -20,7 +21,7 @@ class MainViewModel(): ViewModel() {
 
     val person = MutableLiveData<PersonModel>()
     val experiences = MutableLiveData<List<ExperienceModel>>()
-    val job = MutableLiveData<JobModel>()
+    val job = MutableLiveData<Event<JobModel>>()
     var created = false
 
     public fun onCreate() {
@@ -78,8 +79,9 @@ class MainViewModel(): ViewModel() {
         viewModelScope.launch(Dispatchers.IO) {
             val justJob =  dataManager.getJob(CvApplication.applicationContext(), experiendeModel.experienceId)
             withContext(Dispatchers.Main){
-                job.value = JobModel(justJob)
+                job.value = Event(JobModel(justJob))
             }
         }
     }
+
 }

@@ -13,7 +13,7 @@ interface PersonDao {
     fun getPersonById(id: String):Person
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertAll(vararg persons: Person)
+    fun insert(vararg person: Person)
 
     @Delete
     fun delete(person: Person)

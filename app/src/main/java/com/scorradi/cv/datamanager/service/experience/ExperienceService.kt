@@ -5,7 +5,7 @@ import com.scorradi.cv.datamanager.service.MockedRetrofitServiceBuilder
 class ExperienceService {
     val retrofitServiceBuilder = MockedRetrofitServiceBuilder(8080)
 
-    fun getExperiences():List<ExperienceDTO>?{
+    fun getExperiences():List<ExperienceDTO>{
         retrofitServiceBuilder.start()
         retrofitServiceBuilder.setDispatcher("experiences.json")
         val request = retrofitServiceBuilder.buildService(

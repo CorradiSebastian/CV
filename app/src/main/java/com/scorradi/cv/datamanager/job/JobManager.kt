@@ -8,6 +8,7 @@ import com.scorradi.cv.datamanager.service.experience.ExperienceDTO
 import com.scorradi.cv.datamanager.service.experience.ExperienceService
 import com.scorradi.cv.datamanager.service.job.JobDTO
 import com.scorradi.cv.datamanager.service.job.JobService
+import com.scorradi.cv.db.DBManager
 import com.scorradi.cv.db.daos.entities.Experience
 import com.scorradi.cv.db.daos.entities.Job
 import org.json.JSONException
@@ -39,16 +40,17 @@ class JobManager {
         return jobsFromDTO(jobs)
     }
 
-    fun getJob(context: Context, experienceId: Int): Job {
-        val jobs = getJobsFromJson("jobs.json", context)
-        when (experienceId) {
-            1 -> {
-                return jobs[0]
-            }
-            else -> {
-                return jobs[1]
-            }
-        }
+    fun getJob(experienceId: Int): Job {
+//        val jobs = getJobsFromJson("jobs.json", context)
+//        when (experienceId) {
+//            1 -> {
+//                return jobs[0]
+//            }
+//            else -> {
+//                return jobs[1]
+//            }
+//        }
+        return DBManager.getCvDatabase().jobDao().getJobByExperienceId(experienceId)
     }
 
     private fun jobsFromDTO(dtos : List<JobDTO> ): List<Job>
@@ -57,5 +59,11 @@ class JobManager {
             it.companyName, it.description, it.responsibilities, it.technologies,
             it.libraries, it.extras)
         }
+    }
+
+    fun loadJobs(){
+        val  jobsDTO = JobService().getJobs()
+        val jobs = jobsFromDTO(jobsDTO)
+        DBManager.getCvDatabase().jobDao().insertAll(jobs)
     }
 }

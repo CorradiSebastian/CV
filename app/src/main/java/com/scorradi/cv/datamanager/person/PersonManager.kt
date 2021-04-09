@@ -17,7 +17,7 @@ class PersonManager {
     fun loadPerson(){
         val personDTO = PersonService().getPerson()
         val person = personFromDTO(personDTO)
-        DBManager.getCvDatabase().personDao().insertAll(person)
+        DBManager.getCvDatabase().personDao().insert(person)
     }
 
     private fun personFromDTO(personDTO: PersonDTO): Person{

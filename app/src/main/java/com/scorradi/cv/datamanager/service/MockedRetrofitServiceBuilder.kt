@@ -17,14 +17,11 @@ class MockedRetrofitServiceBuilder(var port: Int) : RetrofitServiceBuilder() {
 
     //gets the filename
     fun setDispatcher(filename: String) {
-        Log.e("bugLoco", "filaname: " + filename)
-        Log.e("bugLoco", "url: " + serverUrl)
         mockWebServer.dispatcher = object : Dispatcher() {
             @Throws(InterruptedException::class)
             override fun dispatch(recordedRequest: RecordedRequest): MockResponse {
                 val mockResponse = MockResponse()
                 mockResponse.setResponseCode(200)
-                Log.e("bugLoco", "filaname: " + filename)
                 val fileContent = Utils.loadJsonFromFile(filename, CvApplication.applicationContext())
                 return mockResponse.setBody(fileContent)
             }

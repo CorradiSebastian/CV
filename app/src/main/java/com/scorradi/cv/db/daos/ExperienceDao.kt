@@ -19,7 +19,6 @@ interface ExperienceDao {
     fun delete(experience: Experience)
 
     @Insert
-    fun insert(vararg experience: Experience)
-
+    fun insertAll(experiences: List<Experience>)
 
 }
