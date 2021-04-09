@@ -3,7 +3,7 @@
 
 This app was created to show some basic implementations of android concepts, libraries and architectures described below
 
-**##LIBRARIES**
+**LIBRARIES**
 
 - Retrofit: The data is retrived with retrofit once and the loaded from an internal DB (there is no backend for this app, so the MockWebServer is used to allow a JSON file to be used as a server response.
 
@@ -13,11 +13,11 @@ This app was created to show some basic implementations of android concepts, lib
 
 - Coroutines: Kotlin's coroutines are used to handle several threads, it is well known that you cannot do a network call on the main thread.
 
-**##ARCHITECTURE**
+**ARCHITECTURE**
 
 - MVVM is used in this app, just a standar implementation interacting with coroutines and fragments, fragments are sharing viewmodels with Activities, also SingleLiveEvent (pattern?) is used.
 
-**##TO BE ADDED**
+**TO BE ADDED**
 
 - App flow: A basic reference of how this app works, how the data is retived, stored and shown.
  
@@ -27,7 +27,7 @@ This app was created to show some basic implementations of android concepts, lib
  
  - Developer contact: My email just to lisent suggestions.
  
- **##NOT PLANNED YET**
+ **NOT PLANNED YET**
  - Crashlitics:
  
  - Notifications:
