@@ -1,7 +1,5 @@
 package com.scorradi.cv.views.main
 
-import android.app.Application
-import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -12,9 +10,11 @@ import com.scorradi.cv.views.events.Event
 import com.scorradi.cv.views.models.ExperienceModel
 import com.scorradi.cv.views.models.JobModel
 import com.scorradi.cv.views.models.PersonModel
-import kotlinx.coroutines.*
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
-class MainViewModel(): ViewModel() {
+class MainViewModel() : ViewModel() {
 
 
     private val dataManager = DataManager()
@@ -46,16 +46,17 @@ class MainViewModel(): ViewModel() {
         loadExperiences()
 
     }
-    fun loadPerson(){
+
+    fun loadPerson() {
         viewModelScope.launch(Dispatchers.IO) {
             val personModel = loadPersonModel()
-            withContext(Dispatchers.Main){
+            withContext(Dispatchers.Main) {
                 person.value = personModel
             }
         }
     }
 
-    fun loadExperiences(){
+    fun loadExperiences() {
         viewModelScope.launch(Dispatchers.IO) {
             val experienceModels = loadExperienceModels()
             withContext(Dispatchers.Main) {
@@ -64,21 +65,22 @@ class MainViewModel(): ViewModel() {
         }
     }
 
-    fun loadPersonModel(): PersonModel{
-        val  person = dataManager.getPerson()
+    fun loadPersonModel(): PersonModel {
+        val person = dataManager.getPerson()
         return PersonModel(person)
     }
 
-    fun loadExperienceModels():List<ExperienceModel>{
+    fun loadExperienceModels(): List<ExperienceModel> {
         val experiences = dataManager.getExperiences();
         return experiences.map<Experience, ExperienceModel> { ExperienceModel(it) }
 
     }
 
-    fun experienceModelClicked(experiendeModel: ExperienceModel){
+    fun experienceModelClicked(experiendeModel: ExperienceModel) {
         viewModelScope.launch(Dispatchers.IO) {
-            val justJob =  dataManager.getJob(CvApplication.applicationContext(), experiendeModel.experienceId)
-            withContext(Dispatchers.Main){
+            val justJob =
+                dataManager.getJob(CvApplication.applicationContext(), experiendeModel.experienceId)
+            withContext(Dispatchers.Main) {
                 job.value = Event(JobModel(justJob))
             }
         }

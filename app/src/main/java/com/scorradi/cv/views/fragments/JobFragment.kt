@@ -1,26 +1,20 @@
 package com.scorradi.cv.views.fragments
 
-import android.content.DialogInterface
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.DialogFragment
-import androidx.lifecycle.ViewModelProvider
 import com.scorradi.cv.R
 import com.scorradi.cv.databinding.JobDialogBinding
-import com.scorradi.cv.db.daos.entities.Job
-import com.scorradi.cv.views.main.MainViewModel
-import com.scorradi.cv.views.models.ExperienceModel
 import com.scorradi.cv.views.models.JobModel
 
-class JobFragment: DialogFragment() {
+class JobFragment : DialogFragment() {
 
-    private lateinit var viewModel: MainViewModel;
 
-    companion object{
-        val KEY_JOB_MODEL:String = "JOB_MODEL"
-        val TAG:String = "JobFragment"
+    companion object {
+        val KEY_JOB_MODEL: String = "JOB_MODEL"
+        val TAG: String = "JobFragment"
 
         fun newInstance(jobModel: JobModel): JobFragment {
 
@@ -34,11 +28,14 @@ class JobFragment: DialogFragment() {
         }
     }
 
-    private lateinit var binding:JobDialogBinding;
+    private lateinit var binding: JobDialogBinding;
 
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        viewModel = ViewModelProvider(this)[MainViewModel::class.java]
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
 
         getDialog()!!.getWindow()?.setBackgroundDrawableResource(R.drawable.rounded_corner);
         binding = JobDialogBinding.inflate(layoutInflater)

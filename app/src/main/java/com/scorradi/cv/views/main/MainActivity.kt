@@ -1,10 +1,7 @@
 package com.scorradi.cv.views.main
 
 import android.os.Bundle
-import android.util.Log
-import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.app.SharedElementCallback
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -34,16 +31,16 @@ class MainActivity : AppCompatActivity() {
 
         viewModel = ViewModelProvider(this)[MainViewModel::class.java]
 
-        viewModel.person.observe(this, Observer(){
-            personModel -> showPerson(personModel)
+        viewModel.person.observe(this, Observer() { personModel ->
+            showPerson(personModel)
         })
 
-        viewModel.experiences.observe(this, Observer(){
-            experiences -> showExperiences(experiences)
+        viewModel.experiences.observe(this, Observer() { experiences ->
+            showExperiences(experiences)
         })
 
-        viewModel.job.observe(this, Observer(){
-            event -> showJob(event.getContentIfNotHandledOrReturnNull())
+        viewModel.job.observe(this, Observer() { event ->
+            showJob(event.getContentIfNotHandledOrReturnNull())
         })
 
         viewModel.onCreate();
@@ -69,7 +66,7 @@ class MainActivity : AppCompatActivity() {
         adapter.notifyDataSetChanged()
     }
 
-    fun showJob(jobModel: JobModel?){
+    fun showJob(jobModel: JobModel?) {
         jobModel?.let {
             JobFragment.newInstance(it).show(supportFragmentManager, JobFragment.TAG)
         }
