@@ -7,7 +7,9 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.LifecycleObserver
 import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import androidx.fragment.app.activityViewModels
 import com.scorradi.cv.databinding.FragmentMainBinding
 import com.scorradi.cv.views.components.ExperienceItemAdapter
 import com.scorradi.cv.views.fragments.JobFragment
@@ -23,7 +25,8 @@ class MainFragment : Fragment() {
 
     private val binding get() = _binding
     private lateinit var _binding: FragmentMainBinding
-    private lateinit var viewModel:MainViewModel
+    //private lateinit var viewModel:MainViewModel
+    private val  viewModel:MainViewModel by activityViewModels()
 
     companion object {
 
@@ -36,7 +39,7 @@ class MainFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
+       // viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
         addObservers()
         lifecycle.addObserver(viewModel)
 
@@ -56,7 +59,7 @@ class MainFragment : Fragment() {
     }
 
     private fun addObservers(){
-        viewModel.person.observe(viewLifecycleOwner, Observer<PersonModel>{
+        viewModel.person.observe(viewLifecycleOwner, {
                 showPerson(it)
         })
 
