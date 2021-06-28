@@ -2,6 +2,7 @@ package com.scorradi.cv
 
 import android.app.Application
 import android.content.Context
+import com.facebook.stetho.Stetho
 
 class CvApplication : Application() {
 
@@ -24,5 +25,7 @@ class CvApplication : Application() {
         // Use ApplicationContext.
         // example: SharedPreferences etc...
         val context: Context = CvApplication.applicationContext()
+
+        Stetho.initializeWithDefaults(this)
     }
 }

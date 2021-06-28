@@ -1,9 +1,6 @@
 package com.scorradi.cv.db.daos
 
-import androidx.room.Dao
-import androidx.room.Delete
-import androidx.room.Insert
-import androidx.room.Query
+import androidx.room.*
 import com.scorradi.cv.db.daos.entities.Job
 
 @Dao
@@ -17,7 +14,7 @@ interface JobDao {
     @Query("Select * from jobs where id = (select job_id from experiences where id = :experienceId )")
     fun getJobByExperienceId(experienceId: Int):Job
 
-    @Insert
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertAll(jobList: List<Job>)
 
     @Delete

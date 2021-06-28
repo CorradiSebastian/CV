@@ -1,9 +1,7 @@
 package com.scorradi.cv.db.daos
 
-import androidx.room.Dao
-import androidx.room.Delete
-import androidx.room.Insert
-import androidx.room.Query
+import androidx.room.*
+import com.google.android.material.circularreveal.CircularRevealHelper
 import com.scorradi.cv.db.daos.entities.Experience
 
 @Dao
@@ -18,7 +16,7 @@ interface ExperienceDao {
     @Delete
     fun delete(experience: Experience)
 
-    @Insert
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertAll(experiences: List<Experience>)
 
 }
