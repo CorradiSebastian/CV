@@ -7,13 +7,13 @@
     android:padding="@dimen/app_padding"
     tools:context=".views.main.MainActivity">
 <!-- TODO parametrizar padding -->
-    <FrameLayout
-        android:id="@+id/main_activity_main_container"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
 
-    </FrameLayout>
+    <androidx.fragment.app.FragmentContainerView
+        android:name="androidx.navigation.fragment.NavHostFragment"
+        app:navGraph="@navigation/nav_main"
+        app:defaultNavHost="true"
+        android:id="@+id/main_host"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

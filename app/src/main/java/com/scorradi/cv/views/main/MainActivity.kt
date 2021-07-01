@@ -20,10 +20,10 @@ class MainActivity : AppCompatActivity() {
 
         setContentView(view)
 
-        val transaction = supportFragmentManager.beginTransaction()
+        /*val transaction = supportFragmentManager.beginTransaction()
         transaction.add(R.id.main_activity_main_container, MainFragment.newInstance())
         transaction.addToBackStack(null)
-        transaction.commit()
+        transaction.commit()*/
     }
 
 

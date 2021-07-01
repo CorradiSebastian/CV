@@ -17,6 +17,7 @@ import com.scorradi.cv.views.models.ExperienceModel
 import com.scorradi.cv.views.models.JobModel
 import com.scorradi.cv.views.models.PersonModel
 import java.util.*
+import kotlin.random.Random
 
 class MainFragment : Fragment() {
 
@@ -25,8 +26,9 @@ class MainFragment : Fragment() {
 
     private val binding get() = _binding
     private lateinit var _binding: FragmentMainBinding
+
     //private lateinit var viewModel:MainViewModel
-    private val  viewModel:MainViewModel by activityViewModels()
+    private val viewModel: MainViewModel by activityViewModels()
 
     companion object {
 
@@ -39,7 +41,7 @@ class MainFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-       // viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
+        // viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
         addObservers()
         lifecycle.addObserver(viewModel)
 
@@ -58,21 +60,23 @@ class MainFragment : Fragment() {
         //return inflater.inflate(R.layout.fragment_chat, container, false)
     }
 
-    private fun addObservers(){
+    private fun addObservers() {
         viewModel.person.observe(viewLifecycleOwner, {
-                showPerson(it)
+            showPerson(it)
         })
 
-        viewModel.experiences.observe(viewLifecycleOwner, Observer<List<ExperienceModel>>{ experiences ->
-            showExperiences(experiences)
-        })
+        viewModel.experiences.observe(
+            viewLifecycleOwner,
+            Observer<List<ExperienceModel>> { experiences ->
+                showExperiences(experiences)
+            })
 
-        viewModel.job.observe(viewLifecycleOwner, Observer<JobModel>{ job ->
-                 showJob(job)
+        viewModel.job.observe(viewLifecycleOwner, Observer<JobModel> { job ->
+            showJob(job)
         })
     }
 
-    private fun removeObservers(){
+    private fun removeObservers() {
         viewModel.person.removeObservers(viewLifecycleOwner)
 
         viewModel.experiences.removeObservers(viewLifecycleOwner)
@@ -100,7 +104,7 @@ class MainFragment : Fragment() {
         adapter.notifyDataSetChanged()
     }
 
-    fun showJob(jobModel: JobModel){
+    fun showJob(jobModel: JobModel) {
         JobFragment.newInstance(jobModel).show(childFragmentManager, JobFragment.TAG)
     }
 }
