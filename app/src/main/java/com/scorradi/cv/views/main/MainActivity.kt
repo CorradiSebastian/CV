@@ -1,74 +1,70 @@
 package com.scorradi.cv.views.main
 
-import android.content.Context
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.FragmentActivity
-import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
-import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.ui.setupWithNavController
+import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.scorradi.cv.R
 import com.scorradi.cv.databinding.ActivityMainBinding
-import com.scorradi.cv.views.components.ExperienceItemAdapter
-import com.scorradi.cv.views.fragments.JobFragment
-import com.scorradi.cv.views.models.ExperienceModel
-import com.scorradi.cv.views.models.JobModel
-import com.scorradi.cv.views.models.PersonModel
 
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
 
-    private lateinit var viewModel: MainViewModel;
+    //private val viewModel: MainViewModel by activityViewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         val view = binding.root
+
         setContentView(view)
 
-        val linearLayoutManager = LinearLayoutManager(this)
-        binding.rvExperiences.layoutManager = linearLayoutManager
+        /*val transaction = supportFragmentManager.beginTransaction()
+        transaction.add(R.id.main_activity_main_container, MainFragment.newInstance())
+        transaction.addToBackStack(null)
+        transaction.commit()*/
 
-        viewModel = MainViewModel(application)
+        val navHostFragment =
+            supportFragmentManager.findFragmentById(R.id.main_host) as NavHostFragment
+        val navController = navHostFragment.navController
+        binding.bottomNav.setupWithNavController(navController)
 
-        viewModel.person.observe(this, Observer(){
-            personModel -> showPerson(personModel)
-        })
+        //binding.bottomNav.setupWithNavController()
+        /*
+        val controller = tab_bottom_navigation_view.setupWithNavController(
+            navGraphIds = navGraphIds,
+            fragmentManager = childFragmentManager,
+            containerId = R.id.tab_nav_host_container,
+            intent = requireActivity().intent,
+            onDestinationChangedListener = onDestinationChangedListener
+        )*/
 
-        viewModel.experiences.observe(this, Observer(){
-            experiences -> showExperiences(experiences)
-        })
 
-        viewModel.job.observe(this, Observer(){
-            jobModel -> showJob(jobModel)
-        })
 
-        viewModel.onCreate();
-    }
-
-    fun showPerson(personModel: PersonModel) {
-        binding.tvName.text = personModel.Name
-        binding.tvDNI.text = personModel.Id
-        binding.tvAge.text = Integer.toString(personModel.Age)
-        binding.tvPhoneNumber.text = personModel.PhoneNumber
-
-    }
-
-    fun showExperiences(experiences: List<ExperienceModel>) {
-        val onClickListener = object : ExperienceItemAdapter.OnClickListener {
-            override fun onClick(experienceModel: ExperienceModel) {
-                viewModel.onExperienceModelClick(experienceModel)
+        //binding.bottomNav.selectedItemId = R.id.nav_home
+/*
+        //ocultar... segun cada caso con destinations
+        navController.addOnDestinationChangedListener { _, destination, _ ->
+            if(destination.id == R.id.full_screen_destination) {
+                toolbar.visibility = View.GONE
+                bottomNavigationView.visibility = View.GONE
+            } else {
+                toolbar.visibility = View.VISIBLE
+                bottomNavigationView.visibility = View.VISIBLE
             }
         }
 
-        val adapter = ExperienceItemAdapter(experiences, onClickListener)
-        binding.rvExperiences.adapter = adapter
-        adapter.notifyDataSetChanged()
-    }
+        //oculatr cada caso con argumentos de navegacion
+        navController.addOnDestinationChangedListener { _, _, arguments ->
+        bottomNavigationView.isVisible = arguments?.getBoolean("ShowAppBar", false) == true
+}
+*/
 
-    fun showJob(jobModel: JobModel){
-        JobFragment.newInstance(jobModel).show(supportFragmentManager, JobFragment.TAG)
     }
 }
+
+
