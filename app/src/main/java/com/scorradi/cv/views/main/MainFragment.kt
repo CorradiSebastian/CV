@@ -12,6 +12,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.fragment.app.activityViewModels
 import com.scorradi.cv.databinding.FragmentMainBinding
 import com.scorradi.cv.views.components.ExperienceItemAdapter
+import com.scorradi.cv.views.events.Event
 import com.scorradi.cv.views.fragments.JobFragment
 import com.scorradi.cv.views.models.ExperienceModel
 import com.scorradi.cv.views.models.JobModel
@@ -71,8 +72,11 @@ class MainFragment : Fragment() {
                 showExperiences(experiences)
             })
 
-        viewModel.job.observe(viewLifecycleOwner, Observer<JobModel> { job ->
-            showJob(job)
+        viewModel.job.observe(viewLifecycleOwner, Observer<Event<JobModel>> { event ->
+            val job = event.getContentIfNotHandledOrReturnNull()
+            job?.let {
+                showJob(job)
+            }
         })
     }
 
@@ -85,17 +89,17 @@ class MainFragment : Fragment() {
     }
 
     fun showPerson(personModel: PersonModel) {
-        binding.tvName.text = personModel.Name
-        binding.tvDNI.text = personModel.Id
-        binding.tvAge.text = Integer.toString(personModel.Age)
-        binding.tvPhoneNumber.text = personModel.PhoneNumber
+        binding.tvName.text = personModel.name
+        binding.tvDNI.text = personModel.id
+        binding.tvAge.text = Integer.toString(personModel.age)
+        binding.tvPhoneNumber.text = personModel.phoneNumber
 
     }
 
     fun showExperiences(experiences: List<ExperienceModel>) {
         val onClickListener = object : ExperienceItemAdapter.OnClickListener {
             override fun onClick(experienceModel: ExperienceModel) {
-                viewModel.onExperienceModelClick(experienceModel)
+                viewModel.experienceModelClicked(experienceModel)
             }
         }
 

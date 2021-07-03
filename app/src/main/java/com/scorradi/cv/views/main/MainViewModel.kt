@@ -1,6 +1,7 @@
 package com.scorradi.cv.views.main
 
 
+import android.app.Application
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -31,17 +32,18 @@ class MainViewModel: AndroidViewModel, LifecycleObserver {
     val experiences: LiveData<List<ExperienceModel>> get() = _experiences
     private val _experiences = MutableLiveData<List<ExperienceModel>>()
 
-    val job: LiveData<JobModel> get() = _job
-    private val _job = MutableLiveData<JobModel>()
+    val job: LiveData<Event<JobModel>> get() = _job
+    private val _job = MutableLiveData<Event<JobModel>>()
 
 
 
     @OnLifecycleEvent(Lifecycle.Event.ON_START)
     public fun onCreate() {
-        if (!created) {
-            created = true
+        //TODO use singleEvent
+        //if (!created) {
+        //    created = true
             loadInitialData()
-        }
+        //}
     }
 
     private fun loadInitialData() {
@@ -64,7 +66,7 @@ class MainViewModel: AndroidViewModel, LifecycleObserver {
         viewModelScope.launch(Dispatchers.IO) {
             val personModel = loadPersonModel()
             withContext(Dispatchers.Main) {
-                person.value = personModel
+                _person.value = personModel
             }
         }
     }
@@ -73,7 +75,7 @@ class MainViewModel: AndroidViewModel, LifecycleObserver {
         viewModelScope.launch(Dispatchers.IO) {
             val experienceModels = loadExperienceModels()
             withContext(Dispatchers.Main) {
-                experiences.value = experienceModels
+                _experiences.value = experienceModels
             }
         }
     }
@@ -94,7 +96,7 @@ class MainViewModel: AndroidViewModel, LifecycleObserver {
             val justJob =
                 dataManager.getJob(CvApplication.applicationContext(), experiendeModel.experienceId)
             withContext(Dispatchers.Main) {
-                job.value = Event(JobModel(justJob))
+                _job.value = Event(JobModel(justJob))
             }
         }
 
