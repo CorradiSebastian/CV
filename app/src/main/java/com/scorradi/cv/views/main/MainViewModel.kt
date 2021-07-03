@@ -1,9 +1,11 @@
 package com.scorradi.cv.views.main
 
+
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.scorradi.cv.CvApplication
+import androidx.lifecycle.*
 import com.scorradi.cv.datamanager.DataManager
 import com.scorradi.cv.db.daos.entities.Experience
 import com.scorradi.cv.views.events.Event
@@ -14,16 +16,27 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-class MainViewModel() : ViewModel() {
 
+class MainViewModel: AndroidViewModel, LifecycleObserver {
+
+//class MainViewModel {
+
+    constructor(application: Application) : super(application)
 
     private val dataManager = DataManager()
 
-    val person = MutableLiveData<PersonModel>()
-    val experiences = MutableLiveData<List<ExperienceModel>>()
-    val job = MutableLiveData<Event<JobModel>>()
-    var created = false
+    val person: LiveData<PersonModel> get() = _person
+    private val _person = MutableLiveData<PersonModel>()
 
+    val experiences: LiveData<List<ExperienceModel>> get() = _experiences
+    private val _experiences = MutableLiveData<List<ExperienceModel>>()
+
+    val job: LiveData<JobModel> get() = _job
+    private val _job = MutableLiveData<JobModel>()
+
+
+
+    @OnLifecycleEvent(Lifecycle.Event.ON_START)
     public fun onCreate() {
         if (!created) {
             created = true
@@ -84,6 +97,7 @@ class MainViewModel() : ViewModel() {
                 job.value = Event(JobModel(justJob))
             }
         }
+
     }
 
 }

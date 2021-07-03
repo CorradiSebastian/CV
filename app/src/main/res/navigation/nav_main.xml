@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_main"
+    app:startDestination="@id/main_fragment">
+
+    <fragment
+        android:id="@+id/main_fragment"
+        android:name="com.scorradi.cv.views.main.MainFragment"
+        android:label="Main Fragment"
+        tools:layout="@layout/fragment_main">
+
+
+        <!-- actions
+        <action
+            android:id="@+id/navigate_to_product_detail"
+            app:destination="@id/product_detail" />
+            -->
+        <!-- arguments
+        <argument
+            android:name="product_id"
+            app:argType="integer" />
+            -->
+
+    </fragment>
+
+    <fragment android:id="@+id/professional_development_fragment"
+        android:label="Professional Development Fragment"
+        android:name="com.scorradi.cv.views.professionaldevelopment.ProfessionalDevelopmentFragment" />
+
+</navigation>
