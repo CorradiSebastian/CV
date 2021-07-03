@@ -1,13 +1,21 @@
 package com.scorradi.cv.views.main
 
-import android.app.Application
+
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import com.scorradi.cv.CvApplication
 import androidx.lifecycle.*
 import com.scorradi.cv.datamanager.DataManager
 import com.scorradi.cv.db.daos.entities.Experience
+import com.scorradi.cv.views.events.Event
 import com.scorradi.cv.views.models.ExperienceModel
 import com.scorradi.cv.views.models.JobModel
 import com.scorradi.cv.views.models.PersonModel
-import java.util.*
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
+
 
 class MainViewModel: AndroidViewModel, LifecycleObserver {
 
@@ -27,18 +35,47 @@ class MainViewModel: AndroidViewModel, LifecycleObserver {
     private val _job = MutableLiveData<JobModel>()
 
 
+
     @OnLifecycleEvent(Lifecycle.Event.ON_START)
     public fun onCreate() {
+        if (!created) {
+            created = true
+            loadInitialData()
+        }
+    }
+
+    private fun loadInitialData() {
+//        viewModelScope.launch {
+//            val personModel = async(Dispatchers.IO) {
+//                loadPersonModel()
+//            }
+//            val experienceModels = async(Dispatchers.IO) {
+//                loadExperienceModels()
+//            }
+//            //aca usaria personModel.await y experienceModels.await
+//    }
+
         loadPerson()
         loadExperiences()
+
     }
 
     fun loadPerson() {
-        _person.value = loadPersonModel()
+        viewModelScope.launch(Dispatchers.IO) {
+            val personModel = loadPersonModel()
+            withContext(Dispatchers.Main) {
+                person.value = personModel
+            }
+        }
     }
 
     fun loadExperiences() {
-        _experiences.value = loadExperienceModels()
+        viewModelScope.launch(Dispatchers.IO) {
+            val experienceModels = loadExperienceModels()
+            withContext(Dispatchers.Main) {
+                experiences.value = experienceModels
+            }
+        }
     }
 
     fun loadPersonModel(): PersonModel {
@@ -47,11 +84,20 @@ class MainViewModel: AndroidViewModel, LifecycleObserver {
     }
 
     fun loadExperienceModels(): List<ExperienceModel> {
-        val experiencesLoaded = dataManager.getExperiences(getApplication());
-        return experiencesLoaded.map<Experience, ExperienceModel> { ExperienceModel(it) }
+        val experiences = dataManager.getExperiences();
+        return experiences.map<Experience, ExperienceModel> { ExperienceModel(it) }
+
     }
 
-    fun onExperienceModelClick(experiendeModel: ExperienceModel) {
-        _job.value = JobModel(dataManager.getJob(getApplication(), experiendeModel.experienceId))
+    fun experienceModelClicked(experiendeModel: ExperienceModel) {
+        viewModelScope.launch(Dispatchers.IO) {
+            val justJob =
+                dataManager.getJob(CvApplication.applicationContext(), experiendeModel.experienceId)
+            withContext(Dispatchers.Main) {
+                job.value = Event(JobModel(justJob))
+            }
+        }
+
     }
+
 }

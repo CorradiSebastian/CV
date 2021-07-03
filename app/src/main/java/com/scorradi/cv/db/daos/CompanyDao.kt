@@ -11,8 +11,8 @@ interface CompanyDao {
     @Query("Select * from companies")
     fun getAll(): List<Company>
 
-    @Query("Select * from companies where name = :companyName")
-    fun getCompanyByName(companyName: String)
+    @Query("Select * from companies where name = :companyName limit 1")
+    fun getCompanyByName(companyName: String): Company
 
     @Insert
     fun insert(vararg companies: Company)

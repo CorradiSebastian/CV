@@ -1,0 +1,22 @@
+{
+	"person" :{
+	  "name":"Sebastian Corradi",
+	  "id": "12.345.678",
+	  "bornDate": 321782400000,
+	  "phoneNumber":"15-1234-5678",
+	  "networkLinks": [
+		{
+			"name":"Linkedin",
+			"link": "www.Somelink.com"
+		},
+		{
+			"name":"StackOverflow",
+			"link": "www.SomeStackOverflowlink.com"
+		},
+		{
+			"name":"GitHub",
+			"link": "www.SomeGithubLink.com"
+		}
+	  ]
+	}
+}

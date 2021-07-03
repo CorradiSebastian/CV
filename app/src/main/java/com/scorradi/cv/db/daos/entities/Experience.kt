@@ -3,15 +3,17 @@ package com.scorradi.cv.db.daos.entities
 import androidx.room.*
 import java.util.*
 
-@Entity(tableName = "experiences", foreignKeys = [(
+@Entity(tableName = "experiences", foreignKeys = [
+        // TODO MAYBE crear tabla de companies
+//        ForeignKey(
+//            entity = Company::class,
+//            parentColumns = ["name"],
+//            childColumns = ["company_name"]),
+    //TODO invert this, Job should have a reference to the company,
         ForeignKey(
-            entity = Company::class,
-            parentColumns = ["Name"],
-            childColumns = ["CompanyName"])),
-       (ForeignKey(
-    entity = Job::class,
-    parentColumns = ["Id"],
-    childColumns = ["JobId"]))])
+            entity = Job::class,
+            parentColumns = ["id"],
+            childColumns = ["job_id"])])
 
 data class Experience(
     @PrimaryKey

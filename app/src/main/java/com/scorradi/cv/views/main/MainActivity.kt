@@ -2,10 +2,16 @@ package com.scorradi.cv.views.main
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
+
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.scorradi.cv.R
+
 import com.scorradi.cv.databinding.ActivityMainBinding
 
 
@@ -55,6 +61,7 @@ class MainActivity : AppCompatActivity() {
             } else {
                 toolbar.visibility = View.VISIBLE
                 bottomNavigationView.visibility = View.VISIBLE
+
             }
         }
 
@@ -64,7 +71,7 @@ class MainActivity : AppCompatActivity() {
 }
 */
 
+
     }
 }
-
 

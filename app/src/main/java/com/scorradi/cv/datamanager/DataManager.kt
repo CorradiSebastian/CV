@@ -6,6 +6,8 @@ import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import com.scorradi.cv.datamanager.experience.ExperienceManager
 import com.scorradi.cv.datamanager.job.JobManager
+import com.scorradi.cv.datamanager.person.PersonManager
+import com.scorradi.cv.datamanager.person.SocialNetworkLink
 import com.scorradi.cv.db.daos.entities.Experience
 import com.scorradi.cv.db.daos.entities.Job
 import com.scorradi.cv.db.daos.entities.Person
@@ -22,24 +24,33 @@ class DataManager {
 
     private val experienceManager = ExperienceManager()
     private val jobManager = JobManager()
+    private val personManager = PersonManager()
 
     fun getPerson(id: Int): Person? {
-        return Person("Sebastian Corradi", Integer.toString(id), Date(321782400000), "15-555-1234")
-    }
-    fun getPerson(): Person {
-        return Person("Sebastian Corradi", "12.345.678", Date(321782400000), "15-555-1234")
+        return Person("Sebastian Corradi", Integer.toString(id), Date(321782400000), "15-555-1234", ArrayList<SocialNetworkLink>())
     }
 
-    fun getExperiences(context: Context): List<Experience>{
-        return experienceManager.getExperiencesFromJson("experiences.json", context)
+    fun getPerson(): Person {
+        return personManager.getPerson()
+    }
+
+    fun getExperiences(): List<Experience>{
+        //return experienceManager.getExperiencesFromJson("experiences.json", context)
+        return experienceManager.getExperiences()
     }
 
     fun getExperiencesMocked(): List<Experience>{
         return experienceManager.getExperiencesMocked()
     }
 
-
     fun getJob(context: Context, experienceId: Int): Job{
-        return jobManager.getJob(context, experienceId)
+        return jobManager.getJob(experienceId)
+    }
+
+    fun loadData(){
+        personManager.loadPerson()
+        jobManager.loadJobs()
+        experienceManager.loadExperiences()
+
     }
 }

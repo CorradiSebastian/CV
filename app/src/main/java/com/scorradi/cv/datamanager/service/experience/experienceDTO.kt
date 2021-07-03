@@ -1,4 +1,4 @@
-package com.scorradi.cv.datamanager
+package com.scorradi.cv.datamanager.service.experience
 
 data class ExperienceDTO(
     val id: Int,

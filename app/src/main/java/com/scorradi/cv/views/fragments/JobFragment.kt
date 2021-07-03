@@ -7,14 +7,14 @@ import android.view.ViewGroup
 import androidx.fragment.app.DialogFragment
 import com.scorradi.cv.R
 import com.scorradi.cv.databinding.JobDialogBinding
-import com.scorradi.cv.db.daos.entities.Job
-import com.scorradi.cv.views.models.ExperienceModel
 import com.scorradi.cv.views.models.JobModel
 
-class JobFragment: DialogFragment() {
-    companion object{
-        val KEY_JOB_MODEL:String = "JOB_MODEL"
-        val TAG:String = "JobFragment"
+class JobFragment : DialogFragment() {
+
+
+    companion object {
+        val KEY_JOB_MODEL: String = "JOB_MODEL"
+        val TAG: String = "JobFragment"
 
         fun newInstance(jobModel: JobModel): JobFragment {
 
@@ -28,10 +28,15 @@ class JobFragment: DialogFragment() {
         }
     }
 
-    private lateinit var binding:JobDialogBinding;
+    private lateinit var binding: JobDialogBinding;
 
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+
         getDialog()!!.getWindow()?.setBackgroundDrawableResource(R.drawable.rounded_corner);
         binding = JobDialogBinding.inflate(layoutInflater)
         return binding.root
@@ -57,4 +62,5 @@ class JobFragment: DialogFragment() {
 //        binding.tvExtras.text = jobModel.extras
 
     }
+
 }

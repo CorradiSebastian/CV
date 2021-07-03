@@ -13,7 +13,7 @@ class DataManagerTest {
         val dataManager = DataManager()
         val appContext = InstrumentationRegistry.getInstrumentation().targetContext
 
-        val experiencesJson = dataManager.getExperiences(appContext)
+        val experiencesJson = dataManager.getExperiences()
         val experiencesMocked = dataManager.getExperiencesMocked()
 
         Assert.assertEquals(experiencesMocked, experiencesJson)

@@ -1,13 +1,15 @@
 package com.scorradi.cv.views.models
 
+import com.scorradi.cv.datamanager.person.SocialNetworkLink
 import com.scorradi.cv.db.daos.entities.Person
 import java.util.*
 
 data class PersonModel(val person: Person) {
-    val Name = person.name
-    val Id = person.id
-    val PhoneNumber = person.phoneNumber
-    val Age = calculateAge(person.bornDate)
+    val name = person.name
+    val id = person.id
+    val phoneNumber = person.phoneNumber
+    val age = calculateAge(person.bornDate)
+    val socialNetworkLinks = person.networkLinks.map< SocialNetworkLink, SocialNetworkLinkModel> { SocialNetworkLinkModel(it)  }
 
     //TODO la logica no tiene que ir acá, de ultima un factory inyectado
     private fun calculateAge(date: Date): Int{
