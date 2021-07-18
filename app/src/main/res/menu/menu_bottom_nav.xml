@@ -3,16 +3,19 @@
 <item
     android:id="@+id/main_fragment"
     android:icon="@drawable/ic_launcher_background"
-    android:contentDescription="es home"
-    android:title="home" />
+    android:contentDescription="Work history"
+    android:title="Experience" />
+    <!-- historial laboral -->
 <item
     android:id="@+id/professional_development_fragment"
     android:icon="@drawable/ic_launcher_background"
-    android:contentDescription="es Bla"
-    android:title="bla" />
+    android:contentDescription="Techonologies known"
+    android:title="Technologies" />
+    <!-- eñose de experiencia, titulos, etc -->
 <item
     android:id="@+id/form"
     android:icon="@drawable/ic_launcher_foreground"
-    android:contentDescription="es bla bla"
-    android:title="bla bla" />
+    android:contentDescription="Personal Life"
+    android:title="About" />
+    <!-- datos generales, musica, comunidades, etc -->
 </menu>
