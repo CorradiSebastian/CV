@@ -1,6 +1,5 @@
-package com.scorradi.cv.datamanager.service.person
+package com.scorradi.cv.service.person
 
-import java.util.*
 import kotlin.collections.ArrayList
 
 class PersonDTO(var name:String,

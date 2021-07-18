@@ -1,6 +1,6 @@
 package com.scorradi.cv.interactors
 
-import com.scorradi.cv.datamanager.DataManager
+import com.scorradi.cv.datamanager.RepositoryManager
 import com.scorradi.cv.datamanager.person.SocialNetworkLink
 import com.scorradi.cv.db.daos.entities.Person
 import java.util.*
@@ -8,7 +8,7 @@ import kotlin.collections.ArrayList
 
 class DataInteractor {
 
-    private val dataManager: DataManager = TODO();
+    private val repositoryManager: RepositoryManager = TODO();
 
     public fun getPersonalData(): Person{
         //return dataManager.getPerson();

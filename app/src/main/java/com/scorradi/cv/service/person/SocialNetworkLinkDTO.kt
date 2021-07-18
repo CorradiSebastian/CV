@@ -1,4 +1,4 @@
-package com.scorradi.cv.datamanager.service.person
+package com.scorradi.cv.service.person
 
 import com.google.gson.annotations.SerializedName
 

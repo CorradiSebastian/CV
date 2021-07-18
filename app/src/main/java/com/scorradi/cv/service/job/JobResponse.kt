@@ -1,7 +1,6 @@
-package com.scorradi.cv.datamanager.service.job
+package com.scorradi.cv.service.job
 
 import com.google.gson.annotations.SerializedName
-import com.scorradi.cv.db.daos.entities.Job
 
 class JobResponse {
     @SerializedName("jobs")

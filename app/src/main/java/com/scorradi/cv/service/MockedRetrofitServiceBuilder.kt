@@ -1,6 +1,5 @@
-package com.scorradi.cv.datamanager.service
+package com.scorradi.cv.service
 
-import android.util.Log
 import com.scorradi.cv.CvApplication
 import com.scorradi.cv.datamanager.Utils
 import okhttp3.mockwebserver.Dispatcher

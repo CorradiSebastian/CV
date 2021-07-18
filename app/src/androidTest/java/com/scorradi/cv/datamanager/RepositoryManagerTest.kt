@@ -7,10 +7,10 @@ import org.junit.Test
 import org.junit.runner.RunWith
 
 @RunWith(AndroidJUnit4::class)
-class DataManagerTest {
+class RepositoryManagerTest {
     @Test
     fun testLoadExperiences() {
-        val dataManager = DataManager()
+        val dataManager = RepositoryManager()
         val appContext = InstrumentationRegistry.getInstrumentation().targetContext
 
         val experiencesJson = dataManager.getExperiences()

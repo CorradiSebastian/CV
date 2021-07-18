@@ -1,10 +1,12 @@
-package com.scorradi.cv.datamanager.service
+package com.scorradi.cv.service
 
 import com.facebook.stetho.okhttp3.StethoInterceptor
 import com.scorradi.cv.BuildConfig
 import okhttp3.OkHttpClient
+import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import java.util.logging.Level
 
 open class RetrofitServiceBuilder {
     protected var serverUrl: String = "http://SomeURL.com/SomeSubDomain/"
@@ -20,11 +22,15 @@ open class RetrofitServiceBuilder {
                 .addConverterFactory(GsonConverterFactory.create())
         }
         if (BuildConfig.DEBUG) {
-            addStethoInterceptor(httpClient)
+            //addStethoInterceptor(httpClient)
         }
         builder!!
             .baseUrl(serverUrl)
-            .client(httpClient!!.build())
+            .client(httpClient!!
+                .addInterceptor(HttpLoggingInterceptor().apply {
+                    level = if (BuildConfig.DEBUG) HttpLoggingInterceptor.Level.BODY else HttpLoggingInterceptor.Level.NONE
+                })
+                .build())
         return builder!!.build()
     }
 

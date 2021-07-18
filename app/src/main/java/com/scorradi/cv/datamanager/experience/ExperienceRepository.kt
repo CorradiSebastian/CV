@@ -1,12 +1,12 @@
 package com.scorradi.cv.datamanager.experience
 
 import android.content.Context
+import android.util.Log
 import com.google.gson.reflect.TypeToken
-import com.scorradi.cv.datamanager.DataManager
-import com.scorradi.cv.datamanager.service.experience.ExperienceDTO
+import com.scorradi.cv.datamanager.RepositoryManager
+import com.scorradi.cv.service.experience.ExperienceDTO
 import com.scorradi.cv.datamanager.Utils
-import com.scorradi.cv.datamanager.service.experience.ExperienceService
-import com.scorradi.cv.datamanager.service.person.PersonService
+import com.scorradi.cv.service.experience.ExperienceService
 import com.scorradi.cv.db.DBManager
 import com.scorradi.cv.db.daos.entities.Experience
 import org.json.JSONException
@@ -14,7 +14,7 @@ import org.json.JSONObject
 import java.util.*
 import kotlin.collections.ArrayList
 
-class ExperienceManager{
+class ExperienceRepository{
     public fun getExperiences(): List<Experience>{
         //return getExperiencesFromJson("experiences.json", CvApplication.applicationContext())
         //val  experiencesDTO = ExperienceService().getExperiences()
@@ -39,7 +39,7 @@ class ExperienceManager{
             val json = JSONObject(jsonString)
 
             val arrayListType = object : TypeToken<ArrayList<ExperienceDTO?>?>() {}.type
-            experienceDTOs = DataManager.gson.fromJson<ArrayList<ExperienceDTO>>(json.get("experiences").toString(), arrayListType)
+            experienceDTOs = RepositoryManager.gson.fromJson<ArrayList<ExperienceDTO>>(json.get("experiences").toString(), arrayListType)
 
         } catch (e: JSONException) {
             return experiencesFromDTO(experienceDTOs)
@@ -54,9 +54,10 @@ class ExperienceManager{
             it.companyName, it.jobId, Date(it.from), Date(it.to))}
     }
 
-    public fun loadExperiences(){
-        val experienceDTOs = ExperienceService().getExperiences()
+    suspend fun loadExperiences(){
+        val experienceDTOs = ExperienceService().getExperiencesAsync()
         val experiences = experiencesFromDTO(experienceDTOs)
         DBManager.getCvDatabase().experienceDao().insertAll(experiences)
+        Log.d("ExperienceRepository", "Async Check")
     }
 }

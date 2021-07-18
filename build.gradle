@@ -16,6 +16,9 @@ buildscript {
 
         classpath("androidx.navigation:navigation-safe-args-gradle-plugin:2.3.5")
     }
+    project.ext {
+        okhttpVersion = '4.9.0'
+    }
 }
 
 allprojects {

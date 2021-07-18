@@ -3,11 +3,10 @@ package com.scorradi.cv.views.main
 
 import android.app.Application
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.scorradi.cv.CvApplication
 import androidx.lifecycle.*
-import com.scorradi.cv.datamanager.DataManager
+import com.scorradi.cv.datamanager.RepositoryManager
 import com.scorradi.cv.db.daos.entities.Experience
 import com.scorradi.cv.views.events.Event
 import com.scorradi.cv.views.models.ExperienceModel
@@ -24,7 +23,7 @@ class MainViewModel: AndroidViewModel, LifecycleObserver {
 
     constructor(application: Application) : super(application)
 
-    private val dataManager = DataManager()
+    private val dataManager = RepositoryManager()
 
     val person: LiveData<PersonModel> get() = _person
     private val _person = MutableLiveData<PersonModel>()

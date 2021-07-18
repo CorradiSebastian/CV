@@ -1,7 +1,4 @@
-package com.scorradi.cv.datamanager.service.job
-
-import androidx.room.ColumnInfo
-import androidx.room.PrimaryKey
+package com.scorradi.cv.service.job
 
 data class JobDTO(
     val id: Int,

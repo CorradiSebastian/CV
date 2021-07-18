@@ -1,22 +1,19 @@
 package com.scorradi.cv.datamanager.job
 
 import android.content.Context
+import android.util.Log
 import com.google.gson.reflect.TypeToken
-import com.scorradi.cv.datamanager.DataManager
+import com.scorradi.cv.datamanager.RepositoryManager
 import com.scorradi.cv.datamanager.Utils
-import com.scorradi.cv.datamanager.service.experience.ExperienceDTO
-import com.scorradi.cv.datamanager.service.experience.ExperienceService
-import com.scorradi.cv.datamanager.service.job.JobDTO
-import com.scorradi.cv.datamanager.service.job.JobService
+import com.scorradi.cv.service.job.JobDTO
+import com.scorradi.cv.service.job.JobService
 import com.scorradi.cv.db.DBManager
-import com.scorradi.cv.db.daos.entities.Experience
 import com.scorradi.cv.db.daos.entities.Job
 import org.json.JSONException
 import org.json.JSONObject
-import java.util.*
 import kotlin.collections.ArrayList
 
-class JobManager {
+class JobRepository {
 
     fun getJobs(fileName: String, context: Context): List<Job> {
         val  jobsDTO = JobService().getJobs()
@@ -31,7 +28,7 @@ class JobManager {
             val json = JSONObject(jsonString)
 
             val arrayListType = object : TypeToken<ArrayList<JobDTO?>?>() {}.type
-            jobs = DataManager.gson.fromJson<ArrayList<JobDTO>>(json.get("jobs").toString(), arrayListType)
+            jobs = RepositoryManager.gson.fromJson<ArrayList<JobDTO>>(json.get("jobs").toString(), arrayListType)
 
         } catch (e: JSONException) {
             return jobsFromDTO(jobs)
@@ -61,9 +58,10 @@ class JobManager {
         }
     }
 
-    fun loadJobs(){
-        val  jobsDTO = JobService().getJobs()
+    suspend fun loadJobs(){
+        val  jobsDTO = JobService().getJobsAsync()
         val jobs = jobsFromDTO(jobsDTO)
         DBManager.getCvDatabase().jobDao().insertAll(jobs)
+        Log.d("JobRepository", "Async Check")
     }
 }
