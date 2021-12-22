@@ -3,20 +3,15 @@ package com.scorradi.cv.db
 import androidx.room.Database
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
-import com.scorradi.cv.db.daos.CompanyDao
-import com.scorradi.cv.db.daos.ExperienceDao
-import com.scorradi.cv.db.daos.JobDao
-import com.scorradi.cv.db.daos.PersonDao
-import com.scorradi.cv.db.daos.entities.Company
-import com.scorradi.cv.db.daos.entities.Experience
-import com.scorradi.cv.db.daos.entities.Job
-import com.scorradi.cv.db.daos.entities.Person
+import com.scorradi.cv.db.daos.*
+import com.scorradi.cv.db.daos.entities.*
 
 @Database(
     entities = [Company::class,
         Job::class,
         Experience::class,
-        Person::class], version = 1
+        Person::class,
+        Technology::class], version = 2
 )
 @TypeConverters(Converters::class)
 abstract class CvDatabase : RoomDatabase() {
@@ -24,4 +19,5 @@ abstract class CvDatabase : RoomDatabase() {
     abstract fun jobDao(): JobDao
     abstract fun personDao(): PersonDao
     abstract fun experienceDao(): ExperienceDao
+    abstract fun technologyDao(): TechnologyDao
 }

@@ -1,6 +1,7 @@
 package com.scorradi.cv.views.main
 
 import android.os.Bundle
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 
 import androidx.lifecycle.Observer
@@ -50,28 +51,26 @@ class MainActivity : AppCompatActivity() {
         )*/
 
 
-
         //binding.bottomNav.selectedItemId = R.id.nav_home
-/*
+
         //ocultar... segun cada caso con destinations
-        navController.addOnDestinationChangedListener { _, destination, _ ->
-            if(destination.id == R.id.full_screen_destination) {
+       /* navController.addOnDestinationChangedListener { _, destination, _ ->
+            Toast.makeText(applicationContext, "hola carola", Toast.LENGTH_LONG).show()
+            /*if(destination.id == R.id.full_screen_destination) {
                 toolbar.visibility = View.GONE
                 bottomNavigationView.visibility = View.GONE
             } else {
                 toolbar.visibility = View.VISIBLE
                 bottomNavigationView.visibility = View.VISIBLE
 
-            }
-        }
+            }*/
+        }*/
 
         //oculatr cada caso con argumentos de navegacion
-        navController.addOnDestinationChangedListener { _, _, arguments ->
-        bottomNavigationView.isVisible = arguments?.getBoolean("ShowAppBar", false) == true
-}
-*/
-
+        //navController.addOnDestinationChangedListener { _, _, arguments ->
+        //bottomNavigationView.isVisible = arguments?.getBoolean("ShowAppBar", false) == true
 
     }
-}
 
+
+}

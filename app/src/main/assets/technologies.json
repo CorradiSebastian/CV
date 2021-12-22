@@ -1,0 +1,14 @@
+{
+  "technologies": [
+    {
+      "name": "Android - Java",
+	  "description":"android development using Java",
+      "time": 7
+    },
+    {
+      "name": "Android - Kotlin",
+	  "description":"android development using Kotlin",
+      "time": 1
+    }
+  ]
+}

@@ -13,7 +13,7 @@
     android:title="Technologies" />
     <!-- eñose de experiencia, titulos, etc -->
 <item
-    android:id="@+id/form"
+    android:id="@+id/about_fragment"
     android:icon="@drawable/ic_launcher_foreground"
     android:contentDescription="Personal Life"
     android:title="About" />

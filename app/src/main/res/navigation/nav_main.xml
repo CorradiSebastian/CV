@@ -29,4 +29,8 @@
         android:label="Professional Development Fragment"
         android:name="com.scorradi.cv.views.professionaldevelopment.ProfessionalDevelopmentFragment" />
 
+    <fragment android:id="@+id/about_fragment"
+        android:label="About Fragment"
+        android:name="com.scorradi.cv.views.about.AboutFragment" />
+
 </navigation>

@@ -12,9 +12,7 @@ import com.scorradi.cv.views.events.Event
 import com.scorradi.cv.views.models.ExperienceModel
 import com.scorradi.cv.views.models.JobModel
 import com.scorradi.cv.views.models.PersonModel
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
+import kotlinx.coroutines.*
 
 
 class MainViewModel: AndroidViewModel, LifecycleObserver {
@@ -46,15 +44,26 @@ class MainViewModel: AndroidViewModel, LifecycleObserver {
     }
 
     private fun loadInitialData() {
-//        viewModelScope.launch {
-//            val personModel = async(Dispatchers.IO) {
-//                loadPersonModel()
-//            }
-//            val experienceModels = async(Dispatchers.IO) {
-//                loadExperienceModels()
-//            }
-//            //aca usaria personModel.await y experienceModels.await
-//    }
+/*        viewModelScope.launch {
+            val personModel = async(Dispatchers.IO) {
+                loadPersonModel()
+            }
+            val experienceModels = async(Dispatchers.IO) {
+                loadExperienceModels()
+            }
+                //espero a que se llamen ambas
+            personModel.await()
+            experienceModels.await()
+    }*/
+        //o sinó
+
+/*        viewModelScope.launch {
+            val deferreds = listOf(
+                async {loadPersonModel()},
+                async {loadExperienceModels()}
+            )
+            deferreds.awaitAll()
+        }*/
 
         loadPerson()
         loadExperiences()

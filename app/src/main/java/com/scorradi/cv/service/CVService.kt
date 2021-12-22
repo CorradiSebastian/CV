@@ -3,6 +3,7 @@ package com.scorradi.cv.service
 import com.scorradi.cv.service.experience.ExperienceResponse
 import com.scorradi.cv.service.job.JobResponse
 import com.scorradi.cv.service.person.PersonResponse
+import com.scorradi.cv.service.technology.TechnologyResponse
 import retrofit2.Call
 import retrofit2.Response
 import retrofit2.http.GET
@@ -29,6 +30,11 @@ class CVService {
 
         @GET("someEndPoint")
         suspend fun getJobsAsync(): Response<JobResponse>
+    }
+    interface ITechnologyService {
+        @GET("someEndPoint")
+        public fun getTechnologies(): Call<TechnologyResponse>
+
     }
 
 }
