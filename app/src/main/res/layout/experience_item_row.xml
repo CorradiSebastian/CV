@@ -2,7 +2,12 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:padding="8dp"
+    android:paddingTop="4dp"
+    android:paddingLeft="8dp"
+    android:paddingRight="8dp"
+    android:paddingBottom="8dp"
+    android:layout_marginBottom="8dp"
+    android:background="@drawable/item_background_1"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
@@ -11,7 +16,6 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_gravity="top|start"
-        android:layout_marginTop="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -20,10 +24,19 @@
         android:textColor="@color/title1"
         tools:text="Google" />
 
+    <View
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        app:layout_constraintLeft_toLeftOf="@id/tvCompanyName"
+        app:layout_constraintRight_toRightOf="@+id/tvCompanyName"
+        app:layout_constraintTop_toBottomOf="@id/tvCompanyName"
+        android:background="@color/items_underline"/>
+
     <TextView
         android:id="@+id/labelFrom"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
         app:layout_constraintStart_toStartOf="parent"
         android:text="From: "
         android:textColor="@color/title2"

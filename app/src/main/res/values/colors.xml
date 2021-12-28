@@ -15,6 +15,9 @@
     <color name="details2">#FF333333</color>
 
     <color name="app_backgorund">#FFF0F0F0</color>
+    <color name="items_backgorund_1">#FFF6F6F6</color>
+    <color name="items_border_1">#FFF0F0F0</color>
+    <color name="items_underline">#FFCCCCCC</color>
 
     <color name="separator">#FF333333</color>
 

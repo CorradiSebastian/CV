@@ -2,31 +2,45 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:padding="8dp"
+    android:paddingTop="4dp"
+    android:paddingLeft="8dp"
+    android:paddingRight="8dp"
+    android:paddingBottom="8dp"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:background="@drawable/item_background_1"
+    android:layout_marginBottom="8dp">
 
     <TextView
         android:id="@+id/tvName"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_gravity="top|start"
-        android:layout_marginTop="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:textSize="20dp"
         android:textStyle="bold"
-        android:textColor="@color/title1"
+        android:textColor="@color/title2"
         tools:text="Google" />
 
+    <View
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        app:layout_constraintLeft_toLeftOf="@id/tvName"
+        app:layout_constraintRight_toRightOf="@+id/tvName"
+        app:layout_constraintTop_toBottomOf="@id/tvName"
+        android:background="@color/items_underline"
+
+        />
     <TextView
         android:id="@+id/tvDescription"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
-        android:text="From: "
-        android:textColor="@color/title2"
+        android:text="Description"
+        android:textColor="@color/title3"
+        android:layout_marginTop="5dp"
         app:layout_constraintTop_toBottomOf="@+id/tvName" />
 
     <TextView
@@ -37,8 +51,8 @@
         android:layout_weight="1"
         android:ellipsize="end"
         android:maxLines="1"
-        tools:text="12/2010"
-        android:textColor="@color/details"
+        tools:text="time in years"
+        android:textColor="@color/title3"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvDescription" />
 
