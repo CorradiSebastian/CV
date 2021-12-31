@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:paddingTop="4dp"
+    android:paddingLeft="8dp"
+    android:paddingRight="8dp"
+    android:paddingBottom="8dp"
+    android:layout_marginBottom="8dp"
+    android:background="@drawable/item_background_1"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/tvSocialNetworkName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|start"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:textColor="@color/title1"
+        tools:text="Google" />
+
+    <TextView
+        android:id="@+id/tvSocialNetworkLink"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        app:layout_constraintStart_toStartOf="parent"
+        android:text="www.linkedin.com "
+        android:autoLink="web"
+        android:textColor="@color/title2"
+        app:layout_constraintTop_toBottomOf="@+id/tvSocialNetworkName" />
+
+    <ImageButton
+        android:id="@+id/btnCopyLink"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="?attr/actionModeCopyDrawable"
+        app:layout_constraintBottom_toBottomOf="@id/tvSocialNetworkLink"
+        app:layout_constraintLeft_toRightOf="@id/tvSocialNetworkLink"
+        app:layout_constraintTop_toTopOf="@id/tvSocialNetworkLink"
+        android:tint="@color/details"
+        android:layout_marginLeft="10dp"
+        android:background="@color/transparent"/>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -14,11 +14,23 @@
         android:text="Sebastian Corradi"
         />
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvSocialNetworks"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        tools:listitem="@layout/social_network_item_row"
+        tools:itemCount="3"
+        app:layout_constraintTop_toBottomOf="@id/tvName"
+        app:layout_constraintStart_toStartOf="parent"
+
+        />
+
     <TextView
         android:id="@+id/tvEmail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/tvName"
+        app:layout_constraintTop_toBottomOf="@id/rvSocialNetworks"
         app:layout_constraintStart_toStartOf="parent"
         android:text="nombre@email.com"
         />

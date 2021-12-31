@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import com.scorradi.cv.databinding.FragmentAboutBinding
 import com.scorradi.cv.databinding.FragmentProfessionalDevelopmentBinding
+import com.scorradi.cv.views.components.TechnologyItemAdapter
 import com.scorradi.cv.views.main.MainViewModel
 import com.scorradi.cv.views.models.PersonModel
 
@@ -41,6 +42,10 @@ class AboutFragment : Fragment() {
 
     private fun showData(personModel: PersonModel){
         _binding.tvLinkedin.text = personModel.socialNetworkLinks.get(0).link
+
+        val adapter = SocialNetworkLinkAdapter(personModel.socialNetworkLinks)
+        binding.rvSocialNetworks.adapter = adapter
+        adapter.notifyDataSetChanged()
     }
 
 }
