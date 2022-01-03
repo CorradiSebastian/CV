@@ -80,6 +80,11 @@ class MainFragment : Fragment() {
         })
     }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        removeObservers()
+    }
+
     private fun removeObservers() {
         viewModel.person.removeObservers(viewLifecycleOwner)
 

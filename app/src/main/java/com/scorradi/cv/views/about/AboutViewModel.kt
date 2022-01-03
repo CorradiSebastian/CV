@@ -16,8 +16,7 @@ class AboutViewModel: AndroidViewModel, LifecycleObserver {
     val person: LiveData<PersonModel> get() = _person
     private val _person = MutableLiveData<PersonModel>()
 
-    @OnLifecycleEvent(Lifecycle.Event.ON_START)
-    public fun onCreate() {
+    init {
         loadInitialData()
     }
 

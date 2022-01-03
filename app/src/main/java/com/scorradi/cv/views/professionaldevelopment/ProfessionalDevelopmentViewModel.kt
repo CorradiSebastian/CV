@@ -16,8 +16,7 @@ class ProfessionalDevelopmentViewModel: AndroidViewModel, LifecycleObserver {
 
     private val dataManager = RepositoryManager()
 
-    @OnLifecycleEvent(Lifecycle.Event.ON_START)
-    public fun onCreate() {
+    init{
         loadTechnologies()
     }
 

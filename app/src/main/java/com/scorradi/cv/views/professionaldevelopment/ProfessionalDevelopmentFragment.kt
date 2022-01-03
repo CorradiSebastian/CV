@@ -4,17 +4,12 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
-import androidx.recyclerview.widget.DividerItemDecoration
-import androidx.recyclerview.widget.LinearLayoutManager
-import com.scorradi.cv.R
 import com.scorradi.cv.databinding.FragmentProfessionalDevelopmentBinding
 import com.scorradi.cv.db.daos.entities.Technology
 import com.scorradi.cv.views.components.TechnologyItemAdapter
-import com.scorradi.cv.views.main.MainFragment
 
 class ProfessionalDevelopmentFragment: Fragment() {
     private val binding get() = _binding
@@ -26,7 +21,7 @@ class ProfessionalDevelopmentFragment: Fragment() {
     companion object {
 
         fun newInstance(
-        ) = MainFragment().apply {
+        ) = ProfessionalDevelopmentFragment().apply {
             arguments = Bundle().apply {}
         }
     }
@@ -52,12 +47,21 @@ class ProfessionalDevelopmentFragment: Fragment() {
         lifecycle.addObserver(viewModel)
     }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        removeObservers()
+    }
+
     fun addObservers(){
         viewModel.technologies.observe(
             viewLifecycleOwner,
             Observer<List<Technology>> { technologies ->
                 showTechnologies(technologies)
             })
+    }
+
+    private fun removeObservers() {
+        viewModel.technologies.removeObservers(viewLifecycleOwner)
     }
 
     private fun showTechnologies(technologies: List<Technology>){

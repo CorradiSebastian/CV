@@ -34,8 +34,7 @@ class MainViewModel: AndroidViewModel, LifecycleObserver {
 
 
 
-    @OnLifecycleEvent(Lifecycle.Event.ON_START)
-    public fun onCreate() {
+    init{
         //TODO use singleEvent
         //if (!created) {
         //    created = true
