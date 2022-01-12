@@ -87,12 +87,12 @@ class MainViewModel: AndroidViewModel, LifecycleObserver {
         }
     }
 
-    fun loadPersonModel(): PersonModel {
+    suspend fun loadPersonModel(): PersonModel {
         val person = dataManager.getPerson()
         return PersonModel(person)
     }
 
-    fun loadExperienceModels(): List<ExperienceModel> {
+    suspend fun loadExperienceModels(): List<ExperienceModel> {
         val experiences = dataManager.getExperiences();
         return experiences.map<Experience, ExperienceModel> { ExperienceModel(it) }
 

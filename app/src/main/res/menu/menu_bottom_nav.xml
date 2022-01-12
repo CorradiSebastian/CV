@@ -2,19 +2,19 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 <item
     android:id="@+id/main_fragment"
-    android:icon="@drawable/ic_launcher_background"
+    android:icon="@drawable/ic_experience"
     android:contentDescription="Work history"
     android:title="Experience" />
     <!-- historial laboral -->
 <item
     android:id="@+id/professional_development_fragment"
-    android:icon="@drawable/ic_launcher_background"
+    android:icon="@drawable/ic_knowledge"
     android:contentDescription="Techonologies known"
     android:title="Technologies" />
     <!-- eñose de experiencia, titulos, etc -->
 <item
     android:id="@+id/about_fragment"
-    android:icon="@drawable/ic_launcher_foreground"
+    android:icon="@drawable/ic_about_phone"
     android:contentDescription="Personal Life"
     android:title="About" />
     <!-- datos generales, musica, comunidades, etc -->

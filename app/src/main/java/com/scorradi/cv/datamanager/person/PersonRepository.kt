@@ -9,17 +9,20 @@ import com.scorradi.cv.db.daos.entities.Person
 import java.util.*
 
 class PersonRepository {
-    fun getPerson(): Person {
-        //val personDTO = PersonService().getPerson()
-        val person = DBManager.Companion.getCvDatabase().personDao().getPersonById("12.345.678")
-        return person
+    suspend fun getPerson(): Person {
+
+        val person = DBManager.Companion.getCvDatabase().personDao().getPerson()
+        when (person){
+            null -> return loadPerson()
+            else -> return person
+        }
     }
 
-    suspend fun loadPerson(){
+    suspend private fun loadPerson(): Person{
         val personDTO = PersonService().getPersonAsync()
         val person = personFromDTO(personDTO)
         DBManager.getCvDatabase().personDao().insert(person)
-        Log.d("PersonRepository", "Async Check")
+        return person
     }
 
     private fun personFromDTO(personDTO: PersonDTO): Person{

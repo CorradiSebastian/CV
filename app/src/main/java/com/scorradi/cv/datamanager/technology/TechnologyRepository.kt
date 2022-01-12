@@ -17,33 +17,14 @@ import org.json.JSONObject
 
 class TechnologyRepository {
 
-    fun loadTechnologies(): List<Technology> {
+    private fun loadTechnologies(): List<Technology> {
         DBManager.getCvDatabase().technologyDao().deleteAll()
 
         val  technologyDTO = TechnologyService().getTechnologies()
         val technologies = technologiesFromDTO(technologyDTO)
         DBManager.getCvDatabase().technologyDao().insertAll(technologies)
-        Log.d("technologyDao", "Async Check")
         return technologies
     }
-/*
-    fun getJobsFromJson(fileName: String, context: Context): List<Job> {
-        var jobs = ArrayList<JobDTO>()
-        try {
-            // Load the JSONArray from the file
-            val jsonString = Utils.Companion.loadJsonFromFile(fileName, context)
-            val json = JSONObject(jsonString)
-
-            val arrayListType = object : TypeToken<ArrayList<JobDTO?>?>() {}.type
-            jobs = RepositoryManager.gson.fromJson<ArrayList<JobDTO>>(json.get("jobs").toString(), arrayListType)
-
-        } catch (e: JSONException) {
-            return jobsFromDTO(jobs)
-        }
-
-        return jobsFromDTO(jobs)
-    }
-*/
 
     private fun technologiesFromDTO(dtos : List<TechnologyDTO> ): List<Technology>
     {
@@ -52,7 +33,11 @@ class TechnologyRepository {
     }
 
     fun getTechnologies(): List<Technology> {
-        return DBManager.getCvDatabase().technologyDao().getAll()
+        var technologies = DBManager.getCvDatabase().technologyDao().getAll()
+        when (technologies.size){
+            0 -> return loadTechnologies()
+            else -> return technologies
+        }
     }
 
 }

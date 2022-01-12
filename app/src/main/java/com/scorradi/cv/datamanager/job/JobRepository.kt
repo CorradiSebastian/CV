@@ -15,9 +15,13 @@ import kotlin.collections.ArrayList
 
 class JobRepository {
 
-    fun getJobs(fileName: String, context: Context): List<Job> {
+    suspend fun getJobs(): List<Job> {
         val  jobsDTO = JobService().getJobs()
-        return jobsFromDTO(jobsDTO)
+        var jobs = jobsFromDTO(jobsDTO)
+        when (jobs.size){
+            0 -> return  loadJobs()
+            else -> return jobs
+        }
     }
 
     fun getJobsFromJson(fileName: String, context: Context): List<Job> {
@@ -38,15 +42,6 @@ class JobRepository {
     }
 
     fun getJob(experienceId: Int): Job {
-//        val jobs = getJobsFromJson("jobs.json", context)
-//        when (experienceId) {
-//            1 -> {
-//                return jobs[0]
-//            }
-//            else -> {
-//                return jobs[1]
-//            }
-//        }
         return DBManager.getCvDatabase().jobDao().getJobByExperienceId(experienceId)
     }
 
@@ -58,10 +53,10 @@ class JobRepository {
         }
     }
 
-    suspend fun loadJobs(){
+    private suspend fun loadJobs(): List<Job>{
         val  jobsDTO = JobService().getJobsAsync()
         val jobs = jobsFromDTO(jobsDTO)
         DBManager.getCvDatabase().jobDao().insertAll(jobs)
-        Log.d("JobRepository", "Async Check")
+        return jobs
     }
 }

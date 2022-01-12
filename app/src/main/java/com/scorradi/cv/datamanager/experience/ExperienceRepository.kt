@@ -15,11 +15,12 @@ import java.util.*
 import kotlin.collections.ArrayList
 
 class ExperienceRepository{
-    public fun getExperiences(): List<Experience>{
-        //return getExperiencesFromJson("experiences.json", CvApplication.applicationContext())
-        //val  experiencesDTO = ExperienceService().getExperiences()
-        //return experiencesFromDTO(experiencesDTO!!)
-        return DBManager.getCvDatabase().experienceDao().getAll()
+    suspend fun getExperiences(): List<Experience>{
+        var experiences = DBManager.getCvDatabase().experienceDao().getAll()
+        when (experiences.size){
+            0 -> return loadExperiences()
+            else -> return experiences
+        }
     }
 
     public fun getExperiencesMocked(): List<Experience>{
@@ -54,10 +55,10 @@ class ExperienceRepository{
             it.companyName, it.jobId, Date(it.from), Date(it.to))}
     }
 
-    suspend fun loadExperiences(){
+    private suspend fun loadExperiences(): List<Experience>{
         val experienceDTOs = ExperienceService().getExperiencesAsync()
         val experiences = experiencesFromDTO(experienceDTOs)
         DBManager.getCvDatabase().experienceDao().insertAll(experiences)
-        Log.d("ExperienceRepository", "Async Check")
+        return experiences
     }
 }

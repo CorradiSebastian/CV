@@ -9,8 +9,8 @@ interface PersonDao {
     @Query("Select * from persons")
     fun getAll(): List<Person>
 
-    @Query("Select * from persons where id = :id")
-    fun getPersonById(id: String):Person
+    @Query("Select * from persons limit 1")
+    fun getPerson():Person
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insert(vararg person: Person)

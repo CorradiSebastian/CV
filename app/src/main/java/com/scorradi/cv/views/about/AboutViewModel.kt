@@ -33,7 +33,7 @@ class AboutViewModel: AndroidViewModel, LifecycleObserver {
         }
     }
 
-    fun loadPersonModel(): PersonModel {
+    suspend fun loadPersonModel(): PersonModel {
         val person = dataManager.getPerson()
         return PersonModel(person)
     }
