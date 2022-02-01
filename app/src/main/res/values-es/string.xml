@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">CV - Sebastian Corradi</string>
+
+    <string name="time_of_experience">%i años de experiencia</string>
+    <string name="age">%s años de edad</string>
+    <string name="date_format">MM-yyyy</string>
+
+    <string name="technologies_description">Estas librerias y tecnologias se usaron para desarrollar esta aplicacion.\nLas descripciones estan solo en ingles.</string>
+    <string name="about">Acerca de</string>
+    <string name="experience">Experiencia</string>
+    <string name="technologies">Tecnologias</string>
+    <string name="degree">Licenciado en Analisis de Sistemas (UBA)</string>
+    <string name="letter">Soy Sebastian Corradi, Licenciado en Sistemas de la UBA y desarrollador android por los ultimos 8 años, proactivo, curioso y colaborador con mis colegas y nuestra comunidad\nEl objetivo de esta aplicación es mostrar implementaciones básicas de distintas librerías y tecnologías en una aplicación con el código disponible en github.\nEn mi perfil de github también pueden encontrar algunos componentes desarrollados por mi.</string>
+</resources>

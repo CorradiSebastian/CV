@@ -56,10 +56,10 @@ class JobFragment : DialogFragment() {
         binding.tvJobName.text = jobModel.name
         binding.tvCompanyName.text = jobModel.companyName
         binding.tvResponsibilities.text = jobModel.responsibilities
-        //TODO just in case to show the other data
-//        binding.tvTechnologies.text = jobModel.technologies
-//        binding.tvLibraries.text = jobModel.libraries
-//        binding.tvExtras.text = jobModel.extras
+
+        binding.tvTechnologies.text = jobModel.technologies
+        binding.tvLibraries.text = jobModel.libraries
+        binding.tvExtras.text = jobModel.extras
 
     }
 

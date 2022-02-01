@@ -13,10 +13,9 @@
 
     <TextView
         android:id="@+id/tvCompanyName"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="top|start"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:textSize="20dp"
@@ -24,11 +23,37 @@
         android:textColor="@color/title1"
         tools:text="Google" />
 
+    <TextView
+        android:id="@+id/tvCompanySeparator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|start"
+        app:layout_constraintStart_toEndOf="@id/tvCompanyName"
+        app:layout_constraintTop_toTopOf="parent"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:textColor="@color/title1"
+        android:text=" - " />
+
+    <TextView
+        android:id="@+id/tvRole"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|start"
+        app:layout_constraintStart_toEndOf="@id/tvCompanySeparator"
+        app:layout_constraintTop_toTopOf="@id/tvCompanyName"
+        app:layout_constraintBottom_toBottomOf="@id/tvCompanyName"
+        android:gravity="center_vertical"
+        android:textSize="16dp"
+        android:textStyle="normal"
+        android:textColor="@color/title3"
+        tools:text="Google" />
+
     <View
         android:layout_width="0dp"
         android:layout_height="1dp"
         app:layout_constraintLeft_toLeftOf="@id/tvCompanyName"
-        app:layout_constraintRight_toRightOf="@+id/tvCompanyName"
+        app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvCompanyName"
         android:background="@color/items_underline"/>
 

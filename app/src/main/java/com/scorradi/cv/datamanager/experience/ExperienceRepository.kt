@@ -24,8 +24,8 @@ class ExperienceRepository{
     }
 
     public fun getExperiencesMocked(): List<Experience>{
-        val experience1 = Experience(1, "Google", 2, Date(321742400000), Date(321752400000))
-        val experience2 = Experience(2, "Apple", 3, Date(321722400000), Date(321742400000))
+        val experience1 = Experience(1, "Google", 2, Date(321742400000), Date(321752400000), "developer")
+        val experience2 = Experience(2, "Apple", 3, Date(321722400000), Date(321742400000), "developer")
         val experiences = ArrayList<Experience>()
         experiences.add(experience1)
         experiences.add(experience2)
@@ -52,7 +52,7 @@ class ExperienceRepository{
     private fun experiencesFromDTO(dtos : List<ExperienceDTO> ): List<Experience>
     {
         return dtos.map<ExperienceDTO, Experience> { Experience(it.id,
-            it.companyName, it.jobId, Date(it.from), Date(it.to))}
+            it.companyName, it.jobId, Date(it.from), Date(it.to), "")}
     }
 
     private suspend fun loadExperiences(): List<Experience>{

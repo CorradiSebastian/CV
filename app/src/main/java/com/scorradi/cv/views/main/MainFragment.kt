@@ -10,6 +10,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.fragment.app.activityViewModels
+import com.scorradi.cv.R
 import com.scorradi.cv.databinding.FragmentMainBinding
 import com.scorradi.cv.views.components.ExperienceItemAdapter
 import com.scorradi.cv.views.events.Event
@@ -95,8 +96,7 @@ class MainFragment : Fragment() {
 
     fun showPerson(personModel: PersonModel) {
         binding.tvName.text = personModel.name
-        binding.tvDNI.text = personModel.id
-        binding.tvAge.text = Integer.toString(personModel.age)
+        binding.tvAge.text = resources.getString(R.string.age, personModel.age)
         binding.tvPhoneNumber.text = personModel.phoneNumber
 
     }

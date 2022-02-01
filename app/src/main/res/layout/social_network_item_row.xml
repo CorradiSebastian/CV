@@ -26,10 +26,11 @@
 
     <TextView
         android:id="@+id/tvSocialNetworkLink"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/btnCopyLink"
         android:text="www.linkedin.com "
         android:autoLink="web"
         android:textColor="@color/title2"
@@ -41,7 +42,7 @@
         android:layout_height="wrap_content"
         android:src="?attr/actionModeCopyDrawable"
         app:layout_constraintBottom_toBottomOf="@id/tvSocialNetworkLink"
-        app:layout_constraintLeft_toRightOf="@id/tvSocialNetworkLink"
+        app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="@id/tvSocialNetworkLink"
         android:tint="@color/details"
         android:layout_marginLeft="10dp"

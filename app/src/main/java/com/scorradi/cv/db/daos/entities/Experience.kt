@@ -23,7 +23,8 @@ data class Experience(
     @ColumnInfo(name = "job_id")
     val jobId: Int,
     val from: Date,
-    val to: Date
+    val to: Date,
+    val role:String
 ) {
 
 }

@@ -37,7 +37,6 @@ class TechnologyItemAdapter(private val technologies: List<Technology>) :
             this.technology = technology
             binding.tvName.text = technology.name
             binding.tvDescription.text = technology.description
-            binding.tvTime.text = technology.time.toString()
         }
 
     }

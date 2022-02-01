@@ -64,6 +64,20 @@ class MainViewModel: AndroidViewModel, LifecycleObserver {
             deferreds.awaitAll()
         }*/
 
+
+        /*
+        //ejemplo sni volver al dispatchers.Main
+        private fun loadPhotos(){
+            viewModelScope.launch {
+                val photos = async(Dispatchers.IO) {
+                    repository.getPhotos(_currentPage)
+                }
+                val allPhotos = _photos.value?.toMutableList()?:ArrayList<Photo>()
+                allPhotos.addAll(photos.await().toMutableList())
+                _photos.value = allPhotos
+            }
+        }
+         */
         loadPerson()
         loadExperiences()
 

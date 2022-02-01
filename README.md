@@ -3,6 +3,9 @@
 
 This app was created to show some basic implementations of android concepts, libraries and architectures described below
 
+**AVAILABLE ON GOOGLE PLAY**
+https://play.google.com/store/apps/details?id=com.scorradi.cv
+
 **LIBRARIES**
 
 - Retrofit: The data is retrived with retrofit once and the loaded from an internal DB (there is no backend for this app, so the MockWebServer is used to allow a JSON file to be used as a server response.

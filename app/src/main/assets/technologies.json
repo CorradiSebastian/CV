@@ -1,13 +1,58 @@
 {
   "technologies": [
     {
-      "name": "Android - Java",
-	  "description":"android development using Java",
-      "time": 7
+      "name": "Android - Kotlin",
+	  "description":"This sample app was built with kotlin",
+      "time": 1
     },
     {
-      "name": "Android - Kotlin",
-	  "description":"android development using Kotlin",
+      "name": "GITHUB",
+	  "description":"Source code added to github, please check it out at https://github.com/CorradiSebastian/CV",
+      "time": 1
+    },
+    {
+      "name": "ROOM",
+	  "description":"Library to access and interact with SQLite DB",
+      "time": 1
+    },
+    {
+      "name": "Retrofit",
+	  "description":"Library to make REST API calls, add interactors, loggers, etc",
+      "time": 1
+    },
+    {
+      "name": "MVVM",
+	  "description":"Architecture, to isolate and encapsulate layer's responsibilities",
+      "time": 1
+    },
+    {
+      "name": "Coroutines",
+	  "description":"technology to handle threads",
+      "time": 1
+    },
+    {
+      "name": "Navigation Component",
+	  "description":"Navigation component and Bottom Navigation component added",
+      "time": 1
+    },
+    {
+      "name": "Room Converters",
+	  "description":"Technique to handle easily complex data, such as dates",
+      "time": 1
+    },
+    {
+      "name": "Kotlin's Extension Functions",
+	  "description":"Technique to add funciontalities to classes already created without overriding them or using inheritance",
+      "time": 1
+    },
+    {
+      "name": "MockWebServer",
+	  "description":"Library to mock the web server response",
+      "time": 1
+    },
+    {
+      "name": "Love",
+	  "description":"In all the aspects of life, love is the main engine",
       "time": 1
     }
   ]

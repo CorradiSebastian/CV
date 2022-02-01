@@ -10,8 +10,6 @@ data class Technology(
     val name: String,
     @ColumnInfo(name = "Description")
     val description: String,
-    @ColumnInfo(name = "time")
-    val time: Int,
 ){
     @PrimaryKey(autoGenerate = true)
     var Id: Int = 0

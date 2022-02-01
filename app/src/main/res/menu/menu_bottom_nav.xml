@@ -4,18 +4,18 @@
     android:id="@+id/main_fragment"
     android:icon="@drawable/ic_experience"
     android:contentDescription="Work history"
-    android:title="Experience" />
+    android:title="@string/experience" />
     <!-- historial laboral -->
 <item
     android:id="@+id/professional_development_fragment"
     android:icon="@drawable/ic_knowledge"
     android:contentDescription="Techonologies known"
-    android:title="Technologies" />
+    android:title="@string/technologies" />
     <!-- eñose de experiencia, titulos, etc -->
 <item
     android:id="@+id/about_fragment"
     android:icon="@drawable/ic_about_phone"
     android:contentDescription="Personal Life"
-    android:title="About" />
+    android:title="@string/about" />
     <!-- datos generales, musica, comunidades, etc -->
 </menu>

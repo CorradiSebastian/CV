@@ -16,8 +16,7 @@ import kotlin.collections.ArrayList
 class JobRepository {
 
     suspend fun getJobs(): List<Job> {
-        val  jobsDTO = JobService().getJobs()
-        var jobs = jobsFromDTO(jobsDTO)
+        val jobs = DBManager.getCvDatabase().jobDao().getAll()
         when (jobs.size){
             0 -> return  loadJobs()
             else -> return jobs

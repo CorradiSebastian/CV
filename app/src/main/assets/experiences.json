@@ -2,17 +2,45 @@
   "experiences": [
     {
       "id": 1,
-      "companyName": "Google",
+      "companyName": "1950Labs",
       "jobId": 2,
-      "from": 321742400000,
-      "to": 321752400000
+      "from": 1617282000000,
+      "to": 1642651542000
     },
     {
       "id": 2,
-      "companyName": "Apple",
+      "companyName": "Urbetrack",
       "jobId": 3,
-      "from": 321722400000,
-      "to": 321742400000
+      "from": 1517490000000,
+      "to": 1617282000000
+    },
+    {
+      "id": 3,
+      "companyName": "VIX",
+      "jobId": 4,
+      "from": 1480597200000,
+      "to": 1517490000000
+    },
+    {
+      "id": 4,
+      "companyName": "BayTree",
+      "jobId": 5,
+      "from": 1438434000000,
+      "to": 1480597200000
+    },
+    {
+      "id": 5,
+      "companyName": "Globant",
+      "jobId": 6,
+      "from": 1412168400000,
+      "to": 1438434000000
+    },
+    {
+      "id": 6,
+      "companyName": "Global Logic",
+      "jobId": 7,
+      "from": 1388581200000,
+      "to": 1412168400000
     }
   ]
 }

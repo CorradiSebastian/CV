@@ -8,11 +8,27 @@
 
     <!-- TODO parametrizar padding -->
 
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:text="@string/experience"
+        android:textSize="24dp"
+        android:textStyle="bold"
+        android:textColor="@color/title1"
+        android:textAllCaps="true"
+        app:layout_constraintEnd_toEndOf="parent"
+
+        />
+
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/clHeading"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvTitle"
         app:layout_constraintStart_toEndOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         >
@@ -23,27 +39,21 @@
             app:layout_constraintLeft_toLeftOf="parent"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:scaleType="centerInside"
+            android:scaleType="centerCrop"
+            android:padding="5dp"
+            android:src="@mipmap/ic_cara"
             />
 
         <TextView
             android:id="@+id/tvName"
+            android:layout_marginTop="5dp"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             app:layout_constraintTop_toTopOf="@+id/ivPhoto"
             app:layout_constraintLeft_toRightOf="@id/ivPhoto"
             app:layout_constraintRight_toRightOf="parent"
             tools:text="Sebastian Corradi"
-            />
-
-        <TextView
-            android:id="@+id/tvDNI"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@+id/tvName"
-            app:layout_constraintLeft_toLeftOf="@id/tvName"
-            app:layout_constraintRight_toRightOf="parent"
-            tools:text="12.345.678"
+            android:textSize="20dp"
             />
 
 
@@ -51,20 +61,24 @@
             android:id="@+id/tvAge"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@+id/tvDNI"
+            app:layout_constraintTop_toBottomOf="@+id/tvName"
+            app:layout_constraintBottom_toTopOf="@id/tvPhoneNumber"
             app:layout_constraintLeft_toLeftOf="@id/tvName"
             app:layout_constraintRight_toRightOf="parent"
             tools:text="40 years"
+            android:textSize="20dp"
             />
 
         <TextView
             android:id="@+id/tvPhoneNumber"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@+id/tvAge"
+            app:layout_constraintBottom_toBottomOf="@+id/ivPhoto"
             app:layout_constraintLeft_toLeftOf="@id/tvName"
             app:layout_constraintRight_toRightOf="parent"
             tools:text="15-5123-4567"
+            android:layout_marginBottom="5dp"
+            android:textSize="20dp"
             />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -79,6 +93,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="10dp"
         />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

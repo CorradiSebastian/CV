@@ -7,7 +7,7 @@ import com.scorradi.cv.db.daos.entities.Experience
 @Dao
 interface ExperienceDao {
 
-    @Query("Select * from experiences")
+    @Query("Select experiences.Id, experiences.company_name, experiences.job_id, experiences.`from`, experiences.`to`,  jobs.role as role  from experiences inner join jobs on experiences.job_id = jobs.id")
     fun getAll(): List<Experience>
 
     @Query("Select * from experiences where Id = :experienceId")

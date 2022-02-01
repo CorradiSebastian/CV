@@ -5,6 +5,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.scorradi.cv.databinding.ExperienceItemRowBinding
+import com.scorradi.cv.views.extensions.toStringInLocalFormat
 import com.scorradi.cv.views.models.ExperienceModel
 
 class ExperienceItemAdapter(private val experienceModels: List<ExperienceModel>, private val onItemClick: OnClickListener) :
@@ -34,8 +35,9 @@ class ExperienceItemAdapter(private val experienceModels: List<ExperienceModel>,
         fun setExperienceModel(experienceModel: ExperienceModel) {
             this.experienceModel = experienceModel
             binding.tvCompanyName.text = experienceModel.companyName
-            binding.tvFrom.text = experienceModel.from.toString()
-            binding.tvTo.text = experienceModel.to.toString()
+            binding.tvRole.text = experienceModel.role
+            binding.tvFrom.text = experienceModel.from.toStringInLocalFormat()
+            binding.tvTo.text = experienceModel.to.toStringInLocalFormat()
         }
 
         //3

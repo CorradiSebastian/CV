@@ -6,12 +6,76 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <TextView
-        android:id="@+id/tvName"
+        android:id="@+id/tvTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:text="Sebastian Corradi"
+        android:text="@string/about"
+        android:textSize="24dp"
+        android:textStyle="bold"
+        android:textColor="@color/title1"
+        android:textAllCaps="true"
+        app:layout_constraintEnd_toEndOf="parent"
+
+        />
+
+    <TextView
+        android:id="@+id/tvName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/tvTitle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:gravity="center"
+        android:text="Sebastian Corradi's resume app"
+        android:textSize="20dp"
+        android:layout_marginTop="5dp"
+        />
+    <TextView
+        android:id="@+id/tvEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/tvName"
+        app:layout_constraintStart_toStartOf="parent"
+        android:text="SebastianCorradi@gmail.com"
+        android:textColor="@color/title1"
+        android:textSize="18dp"
+        android:layout_marginTop="5dp"
+        />
+
+    <ImageButton
+        android:id="@+id/btnCopyEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="?attr/actionModeCopyDrawable"
+        app:layout_constraintBottom_toBottomOf="@id/tvEmail"
+        app:layout_constraintLeft_toRightOf="@id/tvEmail"
+        android:tint="@color/details"
+        android:layout_marginLeft="10dp"
+        android:background="@color/transparent"/>
+
+    <TextView
+        android:id="@+id/tvDegree"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/tvEmail"
+        app:layout_constraintStart_toStartOf="parent"
+        android:text="@string/degree"
+        android:textSize="18dp"
+        android:layout_marginTop="5dp"
+        />
+
+
+    <TextView
+        android:id="@+id/tvLetter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/tvDegree"
+        app:layout_constraintStart_toStartOf="parent"
+        android:text="@string/letter"
+        android:textSize="18dp"
+        android:layout_marginTop="5dp"
         />
 
     <androidx.recyclerview.widget.RecyclerView
@@ -21,64 +85,11 @@
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         tools:listitem="@layout/social_network_item_row"
         tools:itemCount="3"
-        app:layout_constraintTop_toBottomOf="@id/tvName"
+        app:layout_constraintTop_toBottomOf="@id/tvLetter"
         app:layout_constraintStart_toStartOf="parent"
-
+        android:layout_marginTop="10dp"
         />
 
-    <TextView
-        android:id="@+id/tvEmail"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/rvSocialNetworks"
-        app:layout_constraintStart_toStartOf="parent"
-        android:text="nombre@email.com"
-        />
-
-    <TextView
-        android:id="@+id/tvDegree"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/tvEmail"
-        app:layout_constraintStart_toStartOf="parent"
-        android:text="Degree on Systems analisys -- ver ortografia"
-        />
-
-    <TextView
-        android:id="@+id/tvLinkedin"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/tvDegree"
-        app:layout_constraintStart_toStartOf="parent"
-        android:text="Linkedin"
-        />
-
-    <TextView
-        android:id="@+id/tvGitHub"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/tvLinkedin"
-        app:layout_constraintStart_toStartOf="parent"
-        android:text="Github"
-        />
-
-    <TextView
-        android:id="@+id/tvStackOverflow"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/tvGitHub"
-        app:layout_constraintStart_toStartOf="parent"
-        android:text="stackOverflow"
-        />
-
-    <TextView
-        android:id="@+id/tvLetter"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/tvStackOverflow"
-        app:layout_constraintStart_toStartOf="parent"
-        android:text="started many years ago"
-        />
 
 
 

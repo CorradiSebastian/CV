@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/text_margin"
         android:layout_marginBottom="@dimen/text_margin"
-        tools:text="Android Developer"
+        tools:text="1950Labs"
         android:textSize="@dimen/title1"
         android:textColor="@color/details2"
         android:textStyle="bold"
@@ -27,7 +27,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/text_margin"
-        android:text="Company:"
+        android:text="Role:"
         android:textSize="@dimen/details"
         android:textColor="@color/title3"
  />
@@ -38,7 +38,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="@dimen/text_margin"
-        tools:text="Google"
+        tools:text="Android Developer"
         android:textSize="@dimen/details"
         android:textColor="@color/details2"
 />
@@ -62,7 +62,7 @@
         android:textSize="@dimen/details"
         android:textColor="@color/details2"
  />
-<!--
+
     <TextView
         android:id="@+id/tvLabelTechnologies"
         android:layout_width="match_parent"
@@ -122,6 +122,6 @@
         android:textColor="@color/details2"
         android:textSize="@dimen/details"
  />
--->
+
 
 </androidx.appcompat.widget.LinearLayoutCompat>

@@ -3,19 +3,19 @@
 	  "name":"Sebastian Corradi",
 	  "id": "12.345.678",
 	  "bornDate": 321782400000,
-	  "phoneNumber":"15-1234-5678",
+	  "phoneNumber":"(+54 9) 11-5313-6717",
 	  "networkLinks": [
 		{
 			"name":"Linkedin",
-			"link": "www.Somelink.com"
+			"link": "https://www.linkedin.com/in/sebastoian/"
 		},
 		{
 			"name":"StackOverflow",
-			"link": "www.SomeStackOverflowlink.com"
+			"link": "https://stackoverflow.com/users/3703091/sebastian-corradi"
 		},
 		{
 			"name":"GitHub",
-			"link": "www.SomeGithubLink.com"
+			"link": "https://github.com/CorradiSebastian"
 		}
 	  ]
 	}

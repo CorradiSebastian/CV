@@ -1,5 +1,14 @@
 <resources>
-    <string name="app_name">CV</string>
+    <string name="app_name">RESUME</string>
 
     <string name="time_of_experience">%i years of experience</string>
+    <string name="age">%s years old</string>
+    <string name="date_format">yyyy-MM</string>
+
+    <string name="technologies_description">The following libraries and technologies were used to develop this app.</string>
+    <string name="about">About</string>
+    <string name="experience">Experience</string>
+    <string name="technologies">Technologies</string>
+    <string name="degree">Degree on Systems analisys (U.B.A.)</string>
+    <string name="letter">I\'m Sebastian Corradi, Bachelor of Systems from the UBA and android developer for the last 8 years proactive, curious and collaborative with my colleagues and our community\nThe objective of this application is to show basic implementations of different libraries and technologies in an application with the code available on github.\nIn my github profile you can also find some components also developed by me.</string>
 </resources>

@@ -28,7 +28,7 @@ class TechnologyRepository {
 
     private fun technologiesFromDTO(dtos : List<TechnologyDTO> ): List<Technology>
     {
-        return dtos.map<TechnologyDTO, Technology> { Technology(it.name, it.description, it.time)
+        return dtos.map<TechnologyDTO, Technology> { Technology(it.name, it.description)
         }
     }
 

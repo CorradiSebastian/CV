@@ -1,11 +1,16 @@
 package com.scorradi.cv.views.about
 
+import android.content.ClipData
+import android.content.ClipboardManager
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import com.scorradi.cv.CvApplication
 import com.scorradi.cv.databinding.FragmentAboutBinding
 import com.scorradi.cv.databinding.FragmentProfessionalDevelopmentBinding
 import com.scorradi.cv.views.components.TechnologyItemAdapter
@@ -32,6 +37,13 @@ class AboutFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         addObservers()
         lifecycle.addObserver(viewModel)
+
+        binding.btnCopyEmail.setOnClickListener(){
+            val clipboardManager = CvApplication.applicationContext().getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
+            val clipData = ClipData.newPlainText("email", binding.tvEmail.text)
+            clipboardManager.setPrimaryClip(clipData)
+            Toast.makeText(CvApplication.applicationContext(), "Link copied", Toast.LENGTH_LONG).show()
+        }
     }
 
     private fun addObservers() {
@@ -41,7 +53,6 @@ class AboutFragment : Fragment() {
     }
 
     private fun showData(personModel: PersonModel){
-        _binding.tvLinkedin.text = personModel.socialNetworkLinks.get(0).link
 
         val adapter = SocialNetworkLinkAdapter(personModel.socialNetworkLinks)
         binding.rvSocialNetworks.adapter = adapter

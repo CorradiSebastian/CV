@@ -3,20 +3,60 @@
     {
       "id": 2,
       "name": "Android Developer",
-	  "companyName":"Google",
+	  "companyName":"1950Labs",
       "description": "Develop android applications",
-	  "responsibilities": "accompany the development process from the first moment.\nParticipate in the definition of architectures and strategic decisions.\nResearch new technologies and analyze their implementation.",
-      "technologies": "Java, Kotlin, SQL",
-	  "libraries": "Retrofit, Gson, Room, etc.",
-      "extras": "Technical leader in charge of a team of 3 people.\nPoint of contact with the rest of the teams.\nAgile methodologies."
+	  "responsibilities": "This is a software factory, accompany the development process from scratch or to join in an already started proyect.",
+      "technologies": "Kotlin, SQLite, GIT, Scrum, Jira",
+	  "libraries": "Room, Retrofit, Firebase, Coroutines, LiveData, Navigation Component",
+      "extras": ""
     },
     {
       "id": 3,
       "name": "Android/Flutter Developer",
-	  "companyName":"Apple",
+	  "companyName":"Urbetrack",
       "description": "Develop android applications",
 	  "responsibilities": "accompany the development process from the first moment.\nParticipate in the definition of architectures and strategic decisions.\nMonitoring, control and reporting of project progress.\nReleases Manager",
-      "technologies": "Java, Kotlin, SQL, Flutter",
+      "technologies": "Java, Kotlin, SQL, GIT, Flutter",
+	  "libraries": "Retrofit, Gson, Room, Firebase",
+      "extras": "Technical leader in charge of a team of 3 people.\nPoint of contact with the rest of the teams.\nAgile methodologies."
+     },
+    {
+      "id": 4,
+      "name": "Android Developer",
+	  "companyName":"VIX",
+      "description": "Develop android applications",
+	  "responsibilities": "Development of an android TV app using the Leanback Library.\nResearch and development tasks in order to incorporate AR and new technologies.\nSansumg TV and Fire TV application development",
+      "technologies": "Java, Javascript, Android TV, Javascript, GIT",
+	  "libraries": "Retrofit, Gson, Scrum, etc.",
+      "extras": "R&D tasks includ AR, AI, and latests libraries."
+     },
+    {
+      "id": 5,
+      "name": "Android Developer",
+	  "companyName":"Baytree",
+      "description": "Develop android applications",
+	  "responsibilities": "Maintenance and support of an already developed app.\nDevelopment of a new app, to be integrated to the existing app",
+      "technologies": "Java, SQL, Scrum",
+	  "libraries": "Retrofit, Gson,",
+      "extras": "One app developed from scratch."
+     },
+    {
+      "id": 6,
+      "name": "Android Developer",
+	  "companyName":"Globant",
+      "description": "Develop android applications",
+	  "responsibilities": "Maintenance and new features development for an app to book hotels and apartments",
+      "technologies": "Java",
+	  "libraries": "Retrofit, Gson, etc.",
+      "extras": ""
+     },
+    {
+      "id": 7,
+      "name": "Android Developer",
+	  "companyName":"Global Logic",
+      "description": "Develop android applications",
+	  "responsibilities": "Maintenance and new features development for an telephony provider application to earn points and access benefits",
+      "technologies": "Java, GIT, Scrum",
 	  "libraries": "Retrofit, Gson, Room, etc.",
       "extras": "Technical leader in charge of a team of 3 people.\nPoint of contact with the rest of the teams.\nAgile methodologies."
      }
