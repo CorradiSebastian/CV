@@ -14,3 +14,5 @@
 .cxx
 local.properties
 local.properties
+keystore3/prodkeystore.jks
+app/release/app-release.aab
