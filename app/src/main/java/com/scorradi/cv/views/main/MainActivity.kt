@@ -1,18 +1,13 @@
 package com.scorradi.cv.views.main
 
+import android.R.attr.capitalize
+import android.os.Build
 import android.os.Bundle
-import android.widget.Toast
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
-
-import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
-import androidx.recyclerview.widget.LinearLayoutManager
-
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
-import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.scorradi.cv.R
-
 import com.scorradi.cv.databinding.ActivityMainBinding
 
 
@@ -21,10 +16,23 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
 
     //private val viewModel: MainViewModel by activityViewModels()
-
+    fun getDeviceName(): String {
+        val manufacturer = Build.MANUFACTURER
+        val model = Build.MODEL
+        Log.e("Sebas", "model: ${Build.MODEL}")
+        Log.e("Sebas", "device: ${Build.DEVICE}")
+        Log.e("Sebas", "soc_model: ${Build.SOC_MODEL}")
+        return if (model.toLowerCase().startsWith(manufacturer.toLowerCase())) {
+            model
+        } else {
+            model
+        }
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
+
+        Log.e("Sebas", getDeviceName())
         binding = ActivityMainBinding.inflate(layoutInflater)
         val view = binding.root
 

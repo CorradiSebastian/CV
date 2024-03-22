@@ -3,7 +3,7 @@ package com.scorradi.cv.db.daos.entities
 import androidx.room.*
 import java.util.*
 
-@Entity(tableName = "experiences", foreignKeys = [
+@Entity(tableName = "experiences")/*, foreignKeys = [
         // TODO MAYBE crear tabla de companies
 //        ForeignKey(
 //            entity = Company::class,
@@ -14,7 +14,7 @@ import java.util.*
             entity = Job::class,
             parentColumns = ["id"],
             childColumns = ["job_id"])])
-
+*/
 data class Experience(
     @PrimaryKey
     val Id: Int,
